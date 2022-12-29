@@ -1,20 +1,24 @@
 import "./Student.css";
 
+import { Link, useNavigate } from "react-router-dom";
+
 import Api from "../../Api";
-import { Link } from "react-router-dom";
 import akg_logo from "../../assets/akg logo.png";
 import axios from "axios";
 import boy_image from "../../assets/boy.svg";
 import brl_logo from "../../assets/brllogo.png";
+import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
 const Student = () => {
+  const navigate = useNavigate();
   const [rollNo, setRollNo] = useState("");
   const [fullName, setFullName] = useState("");
   const [loader, setLoader] = useState(false);
 
-  const loginStudent = async () => {
+  const loginStudent = async (e) => {
+    e.preventDefault();
     if (rollNo === "" || fullName === "") {
       toast.warn("Please fill all fields first!", {
         position: "top-right",
@@ -31,8 +35,34 @@ const Student = () => {
     setLoader(true);
     const res = await axios
       .post(Api.loginStd, { full_name: fullName, roll_no: rollNo })
-      .catch((err) => {});
+      .catch((err) => {
+        var errMsg = err.errors;
+        setLoader(false);
+        toast.error(`${errMsg}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      });
     if (res) {
+      localStorage.setItem("studentToken", res.data.data.token);
+      var studentToken = localStorage.getItem("studentToken").split(" ")[1];
+      var decoded = jwt_decode(studentToken);
+      localStorage.setItem("stdName", decoded.name);
+      const res2 = await axios.get(Api.getStdDetails, rollNo).catch((err) => {
+        console.log(err);
+      });
+      if (res2) {
+        var stdDetails = res2.data;
+        localStorage.setItem("studentDetails", stdDetails);
+      }
+      setLoader(false);
+      navigate("/proceed");
     }
   };
 
@@ -69,7 +99,7 @@ const Student = () => {
               </div>
               <br />
 
-              <form>
+              <form onSubmit={loginStudent}>
                 <div className="card-body">
                   <input
                     name="roll_no"
@@ -93,10 +123,9 @@ const Student = () => {
                   <div className="form-group col-md btn1">
                     {!loader && (
                       <button
-                        type="button"
+                        type="submit"
                         className="btn btn-primary btn-lg"
                         style={{ borderRadius: "15px" }}
-                        onClick={loginStudent}
                       >
                         <h3>LOGIN</h3>
                       </button>

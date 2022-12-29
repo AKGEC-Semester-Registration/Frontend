@@ -1,20 +1,24 @@
 import "./Faculty.css";
 
+import { Link, useNavigate } from "react-router-dom";
+
 import Api from "../../Api";
-import { Link } from "react-router-dom";
 import akg_logo from "../../assets/akg logo.png";
 import axios from "axios";
 import boy_image from "../../assets/boy.svg";
 import brl_logo from "../../assets/brllogo.png";
+import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
 const Faculty = () => {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [loader, setLoader] = useState(false);
 
-  const loginFaculty = async () => {
+  const loginFaculty = async (e) => {
+    e.preventDefault();
     if (userName === "" || password === "") {
       toast.warn("Please fill all fields first!", {
         position: "top-right",
@@ -33,8 +37,37 @@ const Faculty = () => {
       .post(Api.facultyLogin, { username: userName, password: password })
       .catch((err) => {
         console.log(err);
+        setLoader(false);
+        var errMsg = err.errors;
+        toast.error(`${errMsg}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       });
     if (res) {
+      console.log(res);
+      toast.success("Login Successful !", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      localStorage.setItem("facultyToken", res.data.data.token);
+      var token = localStorage.getItem("facultyToken").split(" ")[1];
+      var decoded = jwt_decode(token);
+      localStorage.setItem("facultyName", decoded.name);
+      setLoader(false);
+      navigate("/facultypage/dashboard");
     }
   };
   return (
@@ -70,7 +103,7 @@ const Faculty = () => {
               </div>
               <br />
 
-              <form>
+              <form onSubmit={loginFaculty}>
                 <div className="card-body">
                   <input
                     className="form-control form-control-lg  mb-2 p-3"
@@ -92,10 +125,9 @@ const Faculty = () => {
                   <div className="form-group col-md btn1">
                     {!loader && (
                       <button
-                        type="button"
+                        type="submit"
                         className="btn btn-primary btn-lg"
                         style={{ borderRadius: "15px" }}
-                        onClick={loginFaculty}
                       >
                         <h3>LOGIN</h3>
                       </button>
