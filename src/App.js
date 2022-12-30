@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import { BrowserRouter as Router } from "react-router-dom";
 import Student from "./components/Student/Student";
 import { ToastContainer } from "react-toastify";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="student" element={<Student />} />
           <Route path="faculty" element={<Faculty />} />
+          <Route path="facultypage/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </>

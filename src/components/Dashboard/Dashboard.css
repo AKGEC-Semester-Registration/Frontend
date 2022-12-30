@@ -1,0 +1,134 @@
+.container-fluid {
+  margin-top: 10%;
+}
+
+li {
+  width: 32%;
+}
+
+.card {
+  border-radius: 20px;
+  /* flex-direction: row; */
+}
+
+.card-1 {
+  width: 95%;
+  background-color: #a0d7ff;
+  margin: auto;
+}
+
+.card-2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-3 {
+  background-color: #065b9a;
+  margin-top: -50px;
+  padding: 20px;
+  position: relative;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  height: 120px;
+  width: 120px;
+  /* background-color: #ffab00;
+      position: relative;
+      padding-top: 2.5%;
+      padding-bottom: 1.5%;
+      z-index: 1;
+      margin-left: 15px;
+      margin-right: 15px;
+      margin-top: -50px;
+      border-radius: 8px;
+      height: 100px;
+      width: 100px; */
+}
+
+.text {
+  margin: auto;
+}
+
+.icon {
+  height: auto;
+  width: 100%;
+  /* position: absolute;
+    padding-left: 14%;
+    padding-right: 16%;
+    padding-top: 10px;
+    color: white; */
+}
+
+.col-7 {
+  padding: 0;
+}
+
+.col-5 {
+  padding-left: 0;
+}
+
+.row {
+  width: 100%;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+@media only screen and (max-width: 790px) and (min-width: 300px) {
+  .card-1 {
+    width: 99% !important;
+  }
+  .card-3 {
+    padding: 1.5rem;
+    width: 45%;
+  }
+  ul {
+    flex-direction: column;
+  }
+  li {
+    margin: auto;
+    padding-bottom: 2rem;
+    width: 90%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .px-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .pl-5 {
+    padding-left: 0 !important;
+  }
+  .pr-5 {
+    padding-right: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 1250px) and (max-width: 600px) {
+  .card-3 {
+    padding: 1.5rem;
+    width: 45%;
+  }
+  ul {
+    flex-direction: column;
+  }
+  li {
+    margin: auto;
+    padding-bottom: 2rem;
+    width: 90%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .px-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .pl-5 {
+    padding-left: 0 !important;
+  }
+  .pr-5 {
+    padding-right: 0 !important;
+  }
+  .card-1 {
+    width: 60%;
+  }
+}
