@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import CreateStudent from "./components/CreateStudent/CreateStudent";
 import Dashboard from "./components/Dashboard/Dashboard";
 import CreateFaculty from "./components/CreateFaculty/CreateFaculty";
+import RegisteredStudent from "./components/RegisteredStudent/RegisteredStudent";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="facultypage/dashboard" element={<Dashboard />} />
           <Route path="facultypage/createfaculty" element={<CreateFaculty />} />
           <Route path="facultypage/createstd" element={<CreateStudent />} />
+          <Route path="facultypage/registeredstd" element={<RegisteredStudent />} />
         </Routes>
       </Router>
     </>
