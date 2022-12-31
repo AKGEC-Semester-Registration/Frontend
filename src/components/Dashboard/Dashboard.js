@@ -9,13 +9,21 @@ const Dashboard = () => {
   const [countRegistered, setCountRegistered] = useState(0);
   const [countLeft, setCountLeft] = useState(0);
   const [countStudent, setCountStudent] = useState(0);
-  useEffect(() => {
-    axios.get(Api.countUrl).then((data) => {
-      console.warn(data);
-      setCountRegistered(data.data.registered);
-      setCountStudent(data.data.student);
-      setCountLeft(data.data.left);
+  const fetchCounts = async() => {
+    const res = await axios.get(Api.countUrl, {
+      headers: { Authorization: `${localStorage.facultyToken}` },
+    }).catch((err) => {
+      console.log(err);
     });
+    if(res) {
+      console.warn(res);
+      setCountRegistered(res.data.data.registered);
+      setCountStudent(res.data.data.student);
+      setCountLeft(res.data.data.left);
+    }
+  }
+  useEffect(() => {
+    fetchCounts();
   }, []);
   return (
     <div>
