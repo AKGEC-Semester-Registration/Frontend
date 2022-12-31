@@ -103,7 +103,7 @@ const CreateFaculty = () => {
                 <input
                   type="password"
                   className="form-control"
-                  id="inputPassword"
+                  id="inputPassword1"
                   name="passwordConfirm"
                   onChange={handleChange}
                   value={createFaculty.passwordConfirm}

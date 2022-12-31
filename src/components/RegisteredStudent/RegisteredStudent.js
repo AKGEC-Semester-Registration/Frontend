@@ -3,6 +3,7 @@ import edit_img from "../../assets/edit.png";
 import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import Avatar from "react-avatar";
 import Api from "../../Api";
 
 const RegisteredStudent = () => {
@@ -64,6 +65,10 @@ const RegisteredStudent = () => {
     getRegStd();
   }, []);
 
+  const openDialog = () => {
+    
+  }
+
   return (
     <section>
       <div className="container">
@@ -92,17 +97,16 @@ const RegisteredStudent = () => {
           <div className="col-2">
             <div className="row pt-2">
               <div className="col-12" style={{ textAlign: "-webkit-center" }}>
-                <img
-                  avatar
+                <Avatar
                   src={edit_img}
-                  // onClick={openDialog}
+                  onClick={openDialog}
                   className="avatar d-block"
                 />
               </div>
             </div>
             <div className="row pt-2">
               <div className="col-12" style={{ textAlignLast: "center" }}>
-                <h6>{{ faculty_current }}</h6>
+                <h6>{ faculty_current }</h6>
               </div>
             </div>
           </div>
@@ -124,7 +128,7 @@ const RegisteredStudent = () => {
                 <tbody>
                   {loader && (
                     <tr>
-                      <td colspan="5">
+                      <td colSpan="5">
                         <div
                           className="spin"
                           style={{ margin: "auto", width: "fit-content" }}
@@ -192,18 +196,21 @@ const RegisteredStudent = () => {
                           id="inputCourse"
                           className="form-control"
                           name="year"
+                          value={createStd.year}
+                          onChange={e=>setCreateStd({...createStd, year: e.target.value})}
                           style={{
                             backgroundColor: "#065b9a",
                             borderRadius: "20px",
                             color: "white",
                           }}
                         >
-                          <option value="1" selected>
+                          <option value={""}></option>
+                          <option value={"1"}>
                             1st
                           </option>
-                          <option value="2">2nd</option>
-                          <option value="3">3rd</option>
-                          <option value="4">4th</option>
+                          <option value={"2"}>2nd</option>
+                          <option value={"3"}>3rd</option>
+                          <option value={"4"}>4th</option>
                         </select>
                       </div>
                     </div>
@@ -224,21 +231,24 @@ const RegisteredStudent = () => {
                           id="inputCourse"
                           className="form-control"
                           name="branch"
+                          value={createStd.branch}
+                          onChange={e=>setCreateStd({...createStd, branch:e.target.value})}
                           style={{
                             backgroundColor: "#065b9a",
                             borderRadius: "20px",
                             color: "white",
                           }}
                         >
-                          <option value="IT" selected>
+                          <option value={""}></option>
+                          <option value={"IT"}>
                             IT
                           </option>
-                          <option value="CSE">CSE</option>
-                          <option value="ECE">ECE</option>
-                          <option value="EN">EN</option>
-                          <option value="CE">CE</option>
-                          <option value="ME">ME</option>
-                          <option value="EI">EI</option>
+                          <option value={"CSE"}>CSE</option>
+                          <option value={"ECE"}>ECE</option>
+                          <option value={"EN"}>EN</option>
+                          <option value={"CE"}>CE</option>
+                          <option value={"ME"}>ME</option>
+                          <option value={"EI"}>EI</option>
                         </select>
                       </div>
                     </div>

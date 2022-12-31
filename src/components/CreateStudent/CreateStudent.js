@@ -112,7 +112,7 @@ const CreateStudent = () => {
         <form onSubmit={submitHandler}>
           <div className="form-row">
             <div className="form-group col-md-7">
-              <label for="inputName">Full Name :</label>
+              <label htmlFor="inputName">Full Name :</label>
               <input
                 type="text"
                 className="form-control"
@@ -122,7 +122,7 @@ const CreateStudent = () => {
               />
             </div>
             <div className="form-group col-md-5">
-              <label for="inputRollno">Roll No. :</label>
+              <label htmlFor="inputRollno">Roll No. :</label>
               <input
                 type="number"
                 className="form-control"
@@ -135,17 +135,17 @@ const CreateStudent = () => {
 
           <div className="form-row">
             <div className="form-group col-md-4">
-              <label for="inputStdno">Student No. :</label>
+              <label htmlFor="inputStdno">Student No. :</label>
               <input
                 type="text"
                 className="form-control"
                 id="inputStdno"
                 value={stdNo}
-                onChnage={(e) => setStdNo(e.target.value)}
+                onChange={(e) => setStdNo(e.target.value)}
               />
             </div>
             <div className="form-group col-md-3">
-              <label for="inputCourse">Course :</label>
+              <label htmlFor="inputCourse">Course :</label>
               <select
                 id="inputCourse"
                 className="form-control"
@@ -159,7 +159,7 @@ const CreateStudent = () => {
               </select>
             </div>
             <div className="form-group col-md-3">
-              <label for="inputBranch">Branch :</label>
+              <label htmlFor="inputBranch">Branch :</label>
               <select
                 id="inputBranch"
                 className="form-control"
@@ -176,7 +176,7 @@ const CreateStudent = () => {
               </select>
             </div>
             <div className="form-group col-md-2">
-              <label for="inputYear">Year :</label>
+              <label htmlFor="inputYear">Year :</label>
               <select
                 id="inputYear"
                 className="form-control"
@@ -184,16 +184,16 @@ const CreateStudent = () => {
                 onChange={(e) => setYear(e.target.value)}
               >
                 <option value={""}></option>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
+                <option value={"1"}>1</option>
+                <option value={"2"}>2</option>
+                <option value={"3"}>3</option>
+                <option value={"4"}>4</option>
               </select>
             </div>
           </div>
           <div className="form-row">
             <div className="form-group col-md-5">
-              <label for="inputPhone">Phone No. :</label>
+              <label htmlFor="inputPhone">Phone No. :</label>
               <input
                 type="number"
                 className="form-control"
@@ -203,7 +203,7 @@ const CreateStudent = () => {
               />
             </div>
             <div className="form-group col-md-5">
-              <label for="inputEmail">Email :</label>
+              <label htmlFor="inputEmail">Email :</label>
               <input
                 type="email"
                 className="form-control"
@@ -213,7 +213,7 @@ const CreateStudent = () => {
               />
             </div>
             <div className="form-group col-md-2">
-              <label for="inputSem">Sem :</label>
+              <label htmlFor="inputSem">Sem :</label>
               <select
                 id="inputSem"
                 className="form-control"
@@ -221,25 +221,26 @@ const CreateStudent = () => {
                 onChange={(e) => setSemester(e.target.value)}
               >
                 <option value={""}></option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-                <option value={6}>6</option>
-                <option value={7}>7</option>
-                <option value={8}>8</option>
+                <option value={"1"}>1</option>
+                <option value={"2"}>2</option>
+                <option value={"3"}>3</option>
+                <option value={"4"}>4</option>
+                <option value={"5"}>5</option>
+                <option value={'6'}>6</option>
+                <option value={"7"}>7</option>
+                <option value={"8"}>8</option>
               </select>
             </div>
           </div>
           <div className="form-row">
             <div className="form-group col-md-7">
-              <label for="inputfather">Father's Name :</label>
+              <label htmlFor="inputfather">Father's Name :</label>
               <input
                 type="text"
                 className="form-control"
                 id="inputfather"
                 value={fName}
-                onChnage={(e) => setFName(e.target.value)}
+                onChange={(e) => setFName(e.target.value)}
               />
             </div>
 
