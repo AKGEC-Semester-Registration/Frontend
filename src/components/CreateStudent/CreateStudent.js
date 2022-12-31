@@ -117,6 +117,7 @@ const CreateStudent = () => {
                 type="text"
                 className="form-control"
                 id="inputName"
+                value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
             </div>
@@ -126,6 +127,7 @@ const CreateStudent = () => {
                 type="number"
                 className="form-control"
                 id="inputRollno"
+                value={rollNo}
                 onChange={(e) => setRollNo(e.target.value)}
               />
             </div>
@@ -138,6 +140,7 @@ const CreateStudent = () => {
                 type="text"
                 className="form-control"
                 id="inputStdno"
+                value={stdNo}
                 onChnage={(e) => setStdNo(e.target.value)}
               />
             </div>
@@ -146,11 +149,13 @@ const CreateStudent = () => {
               <select
                 id="inputCourse"
                 className="form-control"
+                value={course}
                 onChange={(e) => setCourse(e.target.value)}
               >
-                <option>B.Tech</option>
-                <option>MCA</option>
-                <option>MBA</option>
+                <option value={""}></option>
+                <option value={"B.Tech"}>B.Tech</option>
+                <option value={"MCA"}>MCA</option>
+                <option value={"MBA"}>MBA</option>
               </select>
             </div>
             <div className="form-group col-md-3">
@@ -158,14 +163,16 @@ const CreateStudent = () => {
               <select
                 id="inputBranch"
                 className="form-control"
+                value={branch}
                 onChange={(e) => setBranch(e.target.value)}
               >
-                <option>CSE</option>
-                <option>IT</option>
-                <option>ECE</option>
-                <option>CE</option>
-                <option>ME</option>
-                <option>EI</option>
+                <option value={""}></option>
+                <option value={"CSE"}>CSE</option>
+                <option value={"IT"}>IT</option>
+                <option value={"ECE"}>ECE</option>
+                <option value={"CE"}>CE</option>
+                <option value={"ME"}>ME</option>
+                <option value={"EI"}>EI</option>
               </select>
             </div>
             <div className="form-group col-md-2">
@@ -173,12 +180,14 @@ const CreateStudent = () => {
               <select
                 id="inputYear"
                 className="form-control"
+                value={year}
                 onChange={(e) => setYear(e.target.value)}
               >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option value={""}></option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
               </select>
             </div>
           </div>
@@ -189,6 +198,7 @@ const CreateStudent = () => {
                 type="number"
                 className="form-control"
                 id="inputPhone"
+                value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
               />
             </div>
@@ -198,6 +208,7 @@ const CreateStudent = () => {
                 type="email"
                 className="form-control"
                 id="inputEmail"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -206,16 +217,17 @@ const CreateStudent = () => {
               <select
                 id="inputSem"
                 className="form-control"
+                value={semester}
                 onChange={(e) => setSemester(e.target.value)}
               >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
+                <option value={""}></option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
               </select>
             </div>
           </div>
@@ -226,6 +238,7 @@ const CreateStudent = () => {
                 type="text"
                 className="form-control"
                 id="inputfather"
+                value={fName}
                 onChnage={(e) => setFName(e.target.value)}
               />
             </div>
