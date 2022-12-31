@@ -2,9 +2,9 @@ import "./CreateFaculty.css";
 import Api from "../../Api";
 import { React, useState } from "react";
 import { toast } from "react-toastify";
+import axios from "axios";
 const CreateFaculty = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
   const [createFaculty, setCreateFaculty] = useState({
     name: "",
     username: "",
@@ -19,7 +19,7 @@ const CreateFaculty = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // console.log(e.target);
     if (
@@ -31,12 +31,30 @@ const CreateFaculty = () => {
     ) {
       toast.warning("Please fill all fields first!", {
         position: toast.POSITION.BOTTOM_RIGHT,
+        theme: "colored"
       });
       return;
     }
-
     setIsLoading(true);
-    // API Call here
+    const res = await axios.post(Api.createfacultyUrl, createFaculty, {
+      headers: { Authorization: `${localStorage.facultyToken}` },
+    }).catch(err => {
+      console.log(err);
+      var errMsg = err.errors;
+      setIsLoading(false);
+      toast.error(`${errMsg}`, {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        theme: "colored"
+      });
+    })
+    if(res) {
+      toast.success("Faculty Created Successfully!", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        theme: "colored"
+      });
+      setIsLoading(false);
+      setCreateFaculty({});
+    }
   };
   return (
     <div>

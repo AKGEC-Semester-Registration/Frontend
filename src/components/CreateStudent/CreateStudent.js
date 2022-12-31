@@ -58,7 +58,9 @@ const CreateStudent = () => {
       address: address,
       year: year,
     };
-    const res = await axios.post(Api.createstdUrl, obj).catch((err) => {
+    const res = await axios.post(Api.createstdUrl, obj, {
+      headers: { Authorization: `${localStorage.facultyToken}` },
+    }).catch((err) => {
       const errMsg = err.errors;
       setLoader(false);
       toast.error(`${errMsg}`, {

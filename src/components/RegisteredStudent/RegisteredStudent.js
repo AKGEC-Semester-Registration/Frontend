@@ -3,7 +3,6 @@ import edit_img from "../../assets/edit.png";
 import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import Avatar from "react-avatar";
 import Api from "../../Api";
 
 const RegisteredStudent = () => {
@@ -13,7 +12,7 @@ const RegisteredStudent = () => {
     year: "",
   });
   const [faculty_current, setFacultyCurrent] = useState("");
-  const [students, setStudents] = useState();
+  const [students, setStudents] = useState([]);
   const [totalRecords, setTotalRecords] = useState("");
 
   const getFilterRegUrl = async (branch, year) => {
@@ -50,7 +49,7 @@ const RegisteredStudent = () => {
     if (res) {
       console.log(res);
       setStudents(res.data.data);
-      setTotalRecords(res.data.length);
+      setTotalRecords(res.data.data.length);
       setLoader(false);
     }
   };
@@ -97,7 +96,7 @@ const RegisteredStudent = () => {
           <div className="col-2">
             <div className="row pt-2">
               <div className="col-12" style={{ textAlign: "-webkit-center" }}>
-                <Avatar
+                <img
                   src={edit_img}
                   onClick={openDialog}
                   className="avatar d-block"
