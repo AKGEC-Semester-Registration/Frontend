@@ -1,0 +1,24 @@
+button:focus,
+button:active:focus,
+button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+}
+
+button {
+    width: 100%;
+}
+
+.head {
+    background-color: lightskyblue;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 550;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
