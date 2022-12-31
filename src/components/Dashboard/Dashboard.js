@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [countLeft, setCountLeft] = useState(0);
   const [countStudent, setCountStudent] = useState(0);
   useEffect(() => {
-    axios.get(Api.stdCount).then((data) => {
+    axios.get(Api.countUrl).then((data) => {
       console.warn(data);
       setCountRegistered(data.data.registered);
       setCountStudent(data.data.student);

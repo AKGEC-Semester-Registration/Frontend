@@ -113,22 +113,41 @@ const CreateStudent = () => {
           <div className="form-row">
             <div className="form-group col-md-7">
               <label for="inputName">Full Name :</label>
-              <input type="text" className="form-control" id="inputName" onChange={e => setFullName(e.target.value)}/>
+              <input
+                type="text"
+                className="form-control"
+                id="inputName"
+                onChange={(e) => setFullName(e.target.value)}
+              />
             </div>
             <div className="form-group col-md-5">
               <label for="inputRollno">Roll No. :</label>
-              <input type="number" className="form-control" id="inputRollno" onChange={e => setRollNo(e.target.value)}/>
+              <input
+                type="number"
+                className="form-control"
+                id="inputRollno"
+                onChange={(e) => setRollNo(e.target.value)}
+              />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group col-md-4">
               <label for="inputStdno">Student No. :</label>
-              <input type="text" className="form-control" id="inputStdno" onChnage = {e=>setStdNo(e.target.value)}/>
+              <input
+                type="text"
+                className="form-control"
+                id="inputStdno"
+                onChnage={(e) => setStdNo(e.target.value)}
+              />
             </div>
             <div className="form-group col-md-3">
               <label for="inputCourse">Course :</label>
-              <select id="inputCourse" className="form-control" onChange = {e=>setCourse(e.target.value)}>
+              <select
+                id="inputCourse"
+                className="form-control"
+                onChange={(e) => setCourse(e.target.value)}
+              >
                 <option>B.Tech</option>
                 <option>MCA</option>
                 <option>MBA</option>
@@ -136,7 +155,11 @@ const CreateStudent = () => {
             </div>
             <div className="form-group col-md-3">
               <label for="inputBranch">Branch :</label>
-              <select id="inputBranch" className="form-control" onChange={e=>setBranch(e.target.value)}>
+              <select
+                id="inputBranch"
+                className="form-control"
+                onChange={(e) => setBranch(e.target.value)}
+              >
                 <option>CSE</option>
                 <option>IT</option>
                 <option>ECE</option>
@@ -147,7 +170,11 @@ const CreateStudent = () => {
             </div>
             <div className="form-group col-md-2">
               <label for="inputYear">Year :</label>
-              <select id="inputYear" className="form-control" onChange={e=>setYear(e.target.value)}>
+              <select
+                id="inputYear"
+                className="form-control"
+                onChange={(e) => setYear(e.target.value)}
+              >
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -158,15 +185,29 @@ const CreateStudent = () => {
           <div className="form-row">
             <div className="form-group col-md-5">
               <label for="inputPhone">Phone No. :</label>
-              <input type="number" className="form-control" id="inputPhone" onChange={e=>setMobile(e.target.value)}/>
+              <input
+                type="number"
+                className="form-control"
+                id="inputPhone"
+                onChange={(e) => setMobile(e.target.value)}
+              />
             </div>
             <div className="form-group col-md-5">
               <label for="inputEmail">Email :</label>
-              <input type="email" className="form-control" id="inputEmail" onChange={e=>setEmail(e.target.value)}/>
+              <input
+                type="email"
+                className="form-control"
+                id="inputEmail"
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="form-group col-md-2">
               <label for="inputSem">Sem :</label>
-              <select id="inputSem" className="form-control" onChange={e=>setSemester(e.target.value)}>
+              <select
+                id="inputSem"
+                className="form-control"
+                onChange={(e) => setSemester(e.target.value)}
+              >
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -181,7 +222,12 @@ const CreateStudent = () => {
           <div className="form-row">
             <div className="form-group col-md-7">
               <label for="inputfather">Father's Name :</label>
-              <input type="text" className="form-control" id="inputfather" onChnage={e=>setFName(e.target.value)}/>
+              <input
+                type="text"
+                className="form-control"
+                id="inputfather"
+                onChnage={(e) => setFName(e.target.value)}
+              />
             </div>
 
             <div className=" col-md-5">
