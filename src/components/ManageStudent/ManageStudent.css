@@ -1,0 +1,98 @@
+.card1 {
+  margin-top: 3%;
+  color: white;
+  border-radius: 20px;
+}
+
+.sub {
+  border-radius: 20px;
+}
+
+.row1 {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.example-full-width {
+  color: white;
+}
+
+.form {
+  margin-left: 77%;
+}
+
+.subcard {
+  margin-top: 1.5%;
+  border-radius: 20px;
+  background-color: lightskyblue;
+  overflow-x: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden !important;
+  min-height: inherit;
+  max-height: inherit;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.row::-webkit-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (min-height: 700px) {
+  .bar {
+    overflow: hidden;
+  }
+}
+
+.pagination table {
+  display: inline-block;
+  margin-left: 70%;
+}
+
+.page {
+  /* margin-top: 40px; */
+  bottom: 0;
+  /* position: absolute; */
+  width: fit-content;
+  margin: auto;
+  padding: 0;
+  margin: auto;
+  padding-right: 40px;
+}
+
+.table_card {
+  overflow: hidden !important;
+}
+
+.avatar {
+  height: 4.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  border-style: solid;
+  border-width: 7px;
+}
+
+.avatar:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.fname {
+  display: block;
+  float: right;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.main_table {
+  border-radius: 20px;
+  /* height: 520px; */
+  height: fit-content;
+}
+
+.spin ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #065b9a;
+}

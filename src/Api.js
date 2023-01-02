@@ -8,13 +8,15 @@ const Api = {
   getstdUrl: url + "faculty/getAllStudents",
   countUrl: url + "faculty/count",
   getregstdUrl: url + "faculty/getAllRegistered",
-  registerUrl : url + "student/semesterRegister",
+  registerUrl: url + "student/semesterRegister",
   createlibdueUrl: url + "faculty/createLibDue",
   createfacultyUrl: url + "faculty/createFaculty",
   logoutstdUrl: url + "student/logout",
   filterstdUrl: url + "faculty/getFilteredStudents?",
   filterrgstUrl: url + "faculty/getFilteredRegistered?",
   logoutfacultyUrl: url + "faculty/logout",
+  getStdlist: url + "faculty/getAllStudents",
+  createLibDue: url + "faculty/createLibDue",
 };
 
 export default Api;
