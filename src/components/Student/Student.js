@@ -54,12 +54,17 @@ const Student = () => {
       var studentToken = localStorage.getItem("studentToken").split(" ")[1];
       var decoded = jwt_decode(studentToken);
       localStorage.setItem("stdName", decoded.name);
-      const res2 = await axios.get(Api.getStdDetails, rollNo).catch((err) => {
-        console.log(err);
-      });
+      const res2 = await axios
+        .get(`${Api.getStdDetails}/${rollNo}`, {
+          headers: { Authorization: `${localStorage.studentToken}` },
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       if (res2) {
-        var stdDetails = res2.data;
-        localStorage.setItem("studentDetails", stdDetails);
+        console.log("res2", res2.data.data);
+        var stdDetails = res2.data.data;
+        localStorage.setItem("studentDetails", JSON.stringify(stdDetails));
       }
       setLoader(false);
       navigate("/proceed");

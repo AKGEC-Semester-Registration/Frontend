@@ -8,6 +8,7 @@ import CreateFaculty from "./components/CreateFaculty/CreateFaculty";
 import CreateLibraryDue from "./components/CreateLibraryDue/CreateLibraryDue";
 import CreateStudent from "./components/CreateStudent/CreateStudent";
 import Dashboard from "./components/Dashboard/Dashboard";
+import DeleteStudent from "./components/DeleteStudent/DeleteStudent";
 import Faculty from "./components/Faculty/Faculty";
 import Form from "./components/Form/Form";
 import Home from "./components/Home/Home";
@@ -18,6 +19,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Student from "./components/Student/Student";
 import Summary from "./components/Summary/Summary";
 import { ToastContainer } from "react-toastify";
+import UpdateStudent from "./components/UpdateStudent/UpdateStudent";
 
 function App() {
   return (
@@ -41,6 +43,14 @@ function App() {
           <Route
             path="facultypage/clear-lib-due"
             element={<ClearLibraryDue />}
+          />
+          <Route
+            path="facultypage/update-student"
+            element={<UpdateStudent />}
+          />
+          <Route
+            path="facultypage/delete-student"
+            element={<DeleteStudent />}
           />
           <Route path="facultypage/createstd" element={<CreateStudent />} />
           <Route path="facultypage/summary" element={<Summary />} />

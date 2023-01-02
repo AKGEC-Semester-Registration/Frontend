@@ -68,6 +68,10 @@ const ClearLibraryDue = () => {
                 type="number"
                 className="input__clr form-control"
                 id="inputRollno"
+                value={clearDue.roll_no}
+                onChange={(e) =>
+                  setCleardue({ ...clearDue, roll_no: e.target.value })
+                }
               />
             </div>
           </div>

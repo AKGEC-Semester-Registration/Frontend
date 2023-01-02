@@ -18,6 +18,8 @@ const Api = {
   getSummary: url + "faculty/summery",
   stddueUrl: url + "student/studentDue",
   clearLibDue: url + "faculty/clearDue",
+  updateStudentUrl: url + "faculty/updateStudent",
+  deleteStd: url + "faculty/deleteStudent",
 };
 
 export default Api;
