@@ -100,7 +100,7 @@ const Student = () => {
               <br />
 
               <form onSubmit={loginStudent}>
-                <div className="card-body">
+                <div className="card-body__std">
                   <input
                     name="roll_no"
                     className="form-control form-control-lg mb-2 p-3"

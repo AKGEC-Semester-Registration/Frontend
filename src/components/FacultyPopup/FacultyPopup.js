@@ -3,7 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import Api from "../../Api";
 import "./FacultyPopup.css";
 
-const FacultyPopup = () => {
+import { Link, useNavigate } from "react-router-dom";
+
+import Api from "../../Api";
+import { Button } from "@mui/material";
+import axios from "axios";
+
+const FacultyPopup = (props) => {
   const navigate = useNavigate();
   const facultyLogout = async () => {
     const res = await axios.get(Api.logoutfacultyUrl).catch((err) => {
@@ -15,42 +21,25 @@ const FacultyPopup = () => {
       navigate("home");
     }
   };
-  return (
-    <div>
-      <div className="head">Faculty Options</div>
-      <mat-list>
-        <mat-list-item>
-          <button color="primary">
-            <Link to="/facultypage/update-faculty">Update Faculty</Link>
-          </button>
-        </mat-list-item>
-        <mat-list-item>
-          <button color="primary">
-            <Link to="/facultypage/update-password" style={{ color: "white" }}>
-              Update Password
-            </Link>
-          </button>
-        </mat-list-item>
-        <mat-list-item>
-          <button onClick={facultyLogout} color="primary">
-            LogOut
-          </button>
-        </mat-list-item>
-      </mat-list>
 
-      <div style={{ marginTop: "10px" }}>
-        <button
-          style={{
-            backgroundColor: "#d9534f",
-            width: "fit-content",
-            margin: "auto",
-            color: "white",
-            marginBottom: "10px",
-          }}
-        >
-          Close
-        </button>
-      </div>
+  const handleClose = () => {
+    props.onSuccessfulClose(true);
+  };
+  return (
+    <div className="container">
+      <div className="head">Faculty Options</div>
+      <Button variant="contained" className="fp__btn">
+        <Link to="/facultypage/update-faculty">Update Faculty</Link>
+      </Button>
+      <Button variant="contained" className="fp__btn">
+        <Link to="/facultypage/update-password">Update Password</Link>
+      </Button>
+      <Button variant="contained" onClick={facultyLogout} className="fp__btn">
+        LogOut
+      </Button>
+      <Button variant="contained" onClick={handleClose} className="fp__btn1">
+        Close
+      </Button>
     </div>
   );
 };

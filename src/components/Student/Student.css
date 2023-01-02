@@ -95,7 +95,7 @@ h2 {
     text-align: center;
 }
 
-.card-body {
+.card-body__std {
     margin: auto;
     width: 70%;
 }

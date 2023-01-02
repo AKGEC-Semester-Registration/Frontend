@@ -15,6 +15,7 @@ const Api = {
   filterstdUrl: url + "faculty/getFilteredStudents?",
   filterrgstUrl: url + "faculty/getFilteredRegistered?",
   logoutfacultyUrl: url + "faculty/logout",
+  getSummary: url + "faculty/summery",
   getStdlist: url + "faculty/getAllStudents",
   createLibDue: url + "faculty/createLibDue",
 };

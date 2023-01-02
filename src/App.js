@@ -3,15 +3,16 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { Route, Routes } from "react-router";
 
-import Faculty from "./components/Faculty/Faculty";
-import Home from "./components/Home/Home";
-import { BrowserRouter as Router } from "react-router-dom";
-import Student from "./components/Student/Student";
-import { ToastContainer } from "react-toastify";
+import CreateFaculty from "./components/CreateFaculty/CreateFaculty";
 import CreateStudent from "./components/CreateStudent/CreateStudent";
 import Dashboard from "./components/Dashboard/Dashboard";
-import CreateFaculty from "./components/CreateFaculty/CreateFaculty";
+import Faculty from "./components/Faculty/Faculty";
+import Home from "./components/Home/Home";
 import RegisteredStudent from "./components/RegisteredStudent/RegisteredStudent";
+import { BrowserRouter as Router } from "react-router-dom";
+import Student from "./components/Student/Student";
+import Summary from "./components/Summary/Summary";
+import { ToastContainer } from "react-toastify";
 import ManageStudent from "./components/ManageStudent/ManageStudent";
 import CreateLibraryDue from "./components/CreateLibraryDue/CreateLibraryDue";
 
@@ -31,11 +32,6 @@ function App() {
           <Route
             path="facultypage/registeredstd"
             element={<RegisteredStudent />}
-          />
-          <Route path="facultypage/managestudent" element={<ManageStudent />} />
-          <Route
-            path="/facultypage/create-lib-due"
-            element={<CreateLibraryDue />}
           />
         </Routes>
       </Router>

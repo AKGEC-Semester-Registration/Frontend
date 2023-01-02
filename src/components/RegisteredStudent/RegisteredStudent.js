@@ -1,9 +1,15 @@
 import "./RegisteredStudent.css";
-import edit_img from "../../assets/edit.png";
-import { useState, useEffect } from "react";
-import jwt_decode from "jwt-decode";
-import axios from "axios";
+
+import { useEffect, useState } from "react";
+
 import Api from "../../Api";
+import { Dialog } from "@mui/material";
+import FacultyPopup from "../FacultyPopup/FacultyPopup";
+import ReactPaginate from "react-paginate";
+import Spinner from "react-spinner-material";
+import axios from "axios";
+import edit_img from "../../assets/edit.png";
+import jwt_decode from "jwt-decode";
 
 const RegisteredStudent = () => {
   const [loader, setLoader] = useState(false);
@@ -14,6 +20,10 @@ const RegisteredStudent = () => {
   const [faculty_current, setFacultyCurrent] = useState("");
   const [students, setStudents] = useState([]);
   const [totalRecords, setTotalRecords] = useState("");
+  const [open, setOpen] = useState(false);
+  const [pageCount, setPageCount] = useState(0);
+
+  let limit = 8;
 
   const getFilterRegUrl = async (branch, year) => {
     var url = "";
@@ -42,7 +52,7 @@ const RegisteredStudent = () => {
 
   const getRegStd = async () => {
     const res = await axios
-      .get(Api.getregstdUrl, {
+      .get(Api.getregstdUrl + `?_page=1&limit=${limit}`, {
         headers: { Authorization: `${localStorage.facultyToken}` },
       })
       .catch((err) => console.log(err));
@@ -50,6 +60,7 @@ const RegisteredStudent = () => {
       console.log(res);
       setStudents(res.data.data);
       setTotalRecords(res.data.data.length);
+      setPageCount(Math.ceil(res.data.data.length / limit));
       setLoader(false);
     }
   };
@@ -62,14 +73,41 @@ const RegisteredStudent = () => {
     setFacultyCurrent(decoded.name);
     console.warn(faculty_current);
     getRegStd();
-  }, []);
+  }, [limit]);
+
+  const fetchRegStd = async (currentPage) => {
+    const res = await axios
+      .get(Api.getregstdUrl + `?_page=${currentPage}&_limit=${limit}`)
+      .catch((err) => console.log(err));
+    if (res) {
+      return res.data.data;
+    }
+  };
+
+  const handlePageClick = async (data) => {
+    console.log(data.selected);
+    let currentPage = data.selected + 1;
+    const regStd = await fetchRegStd(currentPage);
+    setStudents(regStd);
+  };
 
   const openDialog = () => {
-    
-  }
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const successfulCloseHandler = (res) => {
+    if (res) setOpen(false);
+  };
 
   return (
     <section>
+      <Dialog open={open} onClose={handleClose} maxWidth={"xs"}>
+        <FacultyPopup onSuccessfulClose={successfulCloseHandler} />
+      </Dialog>
       <div className="container">
         <div
           className="row m-3 p-3"
@@ -82,7 +120,7 @@ const RegisteredStudent = () => {
           <div className="col-10 m-auto">
             <div className="row">
               <div className="col-12">
-                <h2>Registered Students</h2>
+                <h2 style={{ textAlign: "left" }}>Registered Students</h2>
               </div>
             </div>
             <div className="row">
@@ -100,12 +138,13 @@ const RegisteredStudent = () => {
                   src={edit_img}
                   onClick={openDialog}
                   className="avatar d-block"
+                  alt=""
                 />
               </div>
             </div>
             <div className="row pt-2">
               <div className="col-12" style={{ textAlignLast: "center" }}>
-                <h6>{ faculty_current }</h6>
+                <h6>{faculty_current}</h6>
               </div>
             </div>
           </div>
@@ -113,7 +152,7 @@ const RegisteredStudent = () => {
 
         <div className="row row1">
           <div className="col-9">
-            <mat-card className="table_card">
+            <div className="table_card">
               <table className="table table-hover">
                 <thead>
                   <tr>
@@ -132,37 +171,52 @@ const RegisteredStudent = () => {
                           className="spin"
                           style={{ margin: "auto", width: "fit-content" }}
                         >
-                          <mat-spinner diameter="50"></mat-spinner>
+                          <Spinner
+                            radius={30}
+                            color={"blue"}
+                            stroke={3}
+                            visible={true}
+                          ></Spinner>
                         </div>
                       </td>
                     </tr>
                   )}
-                  {/* <tr *ngFor="
-                  let data of students
-                    | paginate
-                      : {
-                          id: 'pagination',
-                          itemsPerPage: 8,
-                          currentPage: page,
-                          totalItems: totalRecords
-                        };
-                  let i = index
-                ">
-                                <th scope="row">{{ i + 1 }}</th>
-                                <td>{{ data.full_name }}</td>
-                                <td>{{ data.roll_no }}</td>
-                                <td>{{ data.branch }}</td>
-                                <td>{{ data.year }}</td>
-                            </tr> */}
+                  {students.map((data, index) => {
+                    // console.log(currentTableData);
+                    return (
+                      <tr key={data._id}>
+                        <th scope="row">{index + 1}</th>
+                        <td>{data.full_name}</td>
+                        <td>{data.roll_no}</td>
+                        <td>{data.branch}</td>
+                        <td>{data.year}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
-              <div className="page">
-                <pagination-controls
-                  id="pagination"
-                  maxSize="4"
-                ></pagination-controls>
+              <div className="pg__rs">
+                <ReactPaginate
+                  previousLabel={"previous"}
+                  nextLabel={"next"}
+                  breakLabel={"..."}
+                  pageCount={pageCount}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={3}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination justify-content-center"}
+                  pageClassName={"page-item"}
+                  pageLinkClassName={"page-link"}
+                  previousClassName={"page-item"}
+                  previousLinkClassName={"page-link"}
+                  nextClassName={"page-item"}
+                  nextLinkClassName={"page-link"}
+                  breakClassName={"page-item"}
+                  breakLinkClassName={"page-link"}
+                  activeClassName={"active"}
+                />
               </div>
-            </mat-card>
+            </div>
           </div>
           <div className="col-3">
             <mat-card className="subcard" style={{ height: "280px" }}>
@@ -196,7 +250,9 @@ const RegisteredStudent = () => {
                           className="form-control"
                           name="year"
                           value={createStd.year}
-                          onChange={e=>setCreateStd({...createStd, year: e.target.value})}
+                          onChange={(e) =>
+                            setCreateStd({ ...createStd, year: e.target.value })
+                          }
                           style={{
                             backgroundColor: "#065b9a",
                             borderRadius: "20px",
@@ -204,9 +260,7 @@ const RegisteredStudent = () => {
                           }}
                         >
                           <option value={""}></option>
-                          <option value={"1"}>
-                            1st
-                          </option>
+                          <option value={"1"}>1st</option>
                           <option value={"2"}>2nd</option>
                           <option value={"3"}>3rd</option>
                           <option value={"4"}>4th</option>
@@ -231,7 +285,12 @@ const RegisteredStudent = () => {
                           className="form-control"
                           name="branch"
                           value={createStd.branch}
-                          onChange={e=>setCreateStd({...createStd, branch:e.target.value})}
+                          onChange={(e) =>
+                            setCreateStd({
+                              ...createStd,
+                              branch: e.target.value,
+                            })
+                          }
                           style={{
                             backgroundColor: "#065b9a",
                             borderRadius: "20px",
@@ -239,9 +298,7 @@ const RegisteredStudent = () => {
                           }}
                         >
                           <option value={""}></option>
-                          <option value={"IT"}>
-                            IT
-                          </option>
+                          <option value={"IT"}>IT</option>
                           <option value={"CSE"}>CSE</option>
                           <option value={"ECE"}>ECE</option>
                           <option value={"EN"}>EN</option>
