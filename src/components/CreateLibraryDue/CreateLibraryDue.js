@@ -30,7 +30,7 @@ const CreateLibraryDue = () => {
     }
     setIsLoading(true);
     const res = await axios
-      .patch(Api.clearLibDue, {
+      .patch(Api.createlibdueUrl, {
         headers: { Authorization: `${localStorage.facultyToken}` },
       })
       .catch((err) => {
