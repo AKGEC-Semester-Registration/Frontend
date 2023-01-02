@@ -2,9 +2,9 @@ import "./RegisteredStudent.css";
 
 import { useEffect, useState } from "react";
 
-import Api from "../../Api";
+import Api from "../../../Api";
 import { Dialog } from "@mui/material";
-import FacultyPopup from "../FacultyPopup/FacultyPopup";
+import FacultyPopup from "../../FacultyPopup/FacultyPopup";
 import ReactPaginate from "react-paginate";
 import Spinner from "react-spinner-material";
 import axios from "axios";
