@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { Route, Routes } from "react-router";
 
+import ClearLibraryDue from "./components/ClearLibraryDue/ClearLibraryDue";
 import CreateFaculty from "./components/CreateFaculty/CreateFaculty";
 import CreateLibraryDue from "./components/CreateLibraryDue/CreateLibraryDue";
 import CreateStudent from "./components/CreateStudent/CreateStudent";
@@ -36,6 +37,10 @@ function App() {
           <Route
             path="facultypage/create-lib-due"
             element={<CreateLibraryDue />}
+          />
+          <Route
+            path="facultypage/clear-lib-due"
+            element={<ClearLibraryDue />}
           />
           <Route path="facultypage/createstd" element={<CreateStudent />} />
           <Route path="facultypage/summary" element={<Summary />} />

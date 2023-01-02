@@ -177,6 +177,7 @@ const ManageStudent = () => {
                               color: "white",
                             }}
                           >
+                            <option value=""></option>
                             <option value="1">1st</option>
                             <option value="2">2nd</option>
                             <option value="3">3rd</option>
@@ -207,6 +208,7 @@ const ManageStudent = () => {
                               color: "white",
                             }}
                           >
+                            <option value=""></option>
                             <option value="IT">IT</option>
                             <option value="CSE">CSE</option>
                             <option value="CSE(AIML)">CSE(AIML)</option>
