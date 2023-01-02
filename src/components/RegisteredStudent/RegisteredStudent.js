@@ -120,7 +120,7 @@ const RegisteredStudent = () => {
           <div className="col-10 m-auto">
             <div className="row">
               <div className="col-12">
-                <h2>Registered Students</h2>
+                <h2 style={{ textAlign: "left" }}>Registered Students</h2>
               </div>
             </div>
             <div className="row">
@@ -173,7 +173,7 @@ const RegisteredStudent = () => {
                         >
                           <Spinner
                             radius={30}
-                            color={"#FFFFFF"}
+                            color={"blue"}
                             stroke={3}
                             visible={true}
                           ></Spinner>

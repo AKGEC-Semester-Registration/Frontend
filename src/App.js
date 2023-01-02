@@ -11,6 +11,7 @@ import Home from "./components/Home/Home";
 import RegisteredStudent from "./components/RegisteredStudent/RegisteredStudent";
 import { BrowserRouter as Router } from "react-router-dom";
 import Student from "./components/Student/Student";
+import Summary from "./components/Summary/Summary";
 import { ToastContainer } from "react-toastify";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="facultypage/dashboard" element={<Dashboard />} />
           <Route path="facultypage/createfaculty" element={<CreateFaculty />} />
           <Route path="facultypage/createstd" element={<CreateStudent />} />
+          <Route path="facultypage/summary" element={<Summary />} />
           <Route
             path="facultypage/registeredstd"
             element={<RegisteredStudent />}
