@@ -25,6 +25,7 @@ const CreateLibraryDue = () => {
     ) {
       toast.warning("Please fill all fields first!", {
         position: toast.POSITION.BOTTOM_RIGHT,
+        theme: "colored",
       });
       return;
     }
@@ -38,11 +39,13 @@ const CreateLibraryDue = () => {
         setIsLoading(false);
         toast.error(`${errMsg}`, {
           position: toast.POSITION.BOTTOM_RIGHT,
+          theme: "colored",
         });
       });
     if (res) {
       toast.success("Library Due Created Succesfully!", {
         position: toast.POSITION.BOTTOM_RIGHT,
+        theme: "colored",
       });
       setIsLoading(false);
       setStudentDetail({});

@@ -1,0 +1,123 @@
+body {
+    background-image: url("../../assets/bg-01.svg");
+    max-height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #7b8a9b !important;
+  }
+  * {
+    background-repeat: no-repeat;
+  }
+  
+  .akg-logo__form {
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  
+  .h1__form {
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  .footer__form {
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: right;
+    border: 10px;
+  }
+  
+  .h4__form {
+    margin-bottom: 00px;
+    margin-right: 20px;
+  }
+  
+  .brl-logo__form {
+    height: 7em;
+    margin-right: 20px;
+  }
+  
+  .column__form {
+    float: left;
+    padding: 10px;
+  }
+  
+  .column__form.side__form {
+    width: 25%;
+  }
+  
+  .column__form.middle__form {
+    width: 50%;
+  }
+  
+  .row__form:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .column__form.side__form {
+      display: none;
+    }
+    .column__form.middle__form {
+      width: 100%;
+    }
+    .h1__form {
+      font-size: xx-large;
+    }
+    .h2__form {
+      font-size: x-large;
+    }
+  }
+  
+  .h2__form {
+    text-align: center;
+  }
+  
+  .btn__form {
+    background-color: #065a9a;
+    border-radius: 25px;
+    color: white;
+  }
+  
+  .btn__form:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .shadow-hover__form:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+  }
+  
+  .card1__form {
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2em;
+    z-index: 100;
+    color: #065a9a;
+    background-color: #a0d7ff;
+  }
+  
+  .redbox__form {
+    width: fit-content;
+    margin-top: -11%;
+    background-color: #d9534f;
+    color: white;
+    align-self: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+  
+  .a__form {
+    text-decoration: none;
+    width: fit-content;
+    align-self: center;
+  }
+  
+  .btn-center__form {
+    margin: auto;
+    width: fit-content;
+  }
+  

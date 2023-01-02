@@ -8,6 +8,7 @@ import CreateLibraryDue from "./components/CreateLibraryDue/CreateLibraryDue";
 import CreateStudent from "./components/CreateStudent/CreateStudent";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Faculty from "./components/Faculty/Faculty";
+import Form from "./components/Form/Form";
 import Home from "./components/Home/Home";
 import ManageStudent from "./components/ManageStudent/ManageStudent";
 import Proceed from "./components/Proceed/Proceed";
@@ -27,6 +28,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="student" element={<Student />} />
           <Route path="proceed" element={<Proceed />} />
+          <Route path="proceed/form" element={<Form />} />
           <Route path="faculty" element={<Faculty />} />
           <Route path="facultypage/dashboard" element={<Dashboard />} />
           <Route path="facultypage/createfaculty" element={<CreateFaculty />} />

@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import Api from "../../Api";
 import Spinner from "react-spinner-material";
 import axios from "axios";
-import { useAsyncError } from "react-router-dom";
 
 const Summary = () => {
   const [loader, setLoader] = useState(false);
