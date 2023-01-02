@@ -13,13 +13,13 @@ const Home = () => {
           src={akg_logo}
           height="130em"
           width="130em"
-          className="akg-logo"
+          className="akg-logo__home"
           alt=""
         />
-        <h1>New Semester Registration</h1>
+        <h1 className="h1__home">New Semester Registration</h1>
       </div>
       <div className="container">
-        <div className="row">
+        <div className="row row__home">
           <div className="column side">
             <img
               src={boy_image}
@@ -32,21 +32,21 @@ const Home = () => {
             <br />
             <br />
             <br />
-            <div className="card card1">
-              <h2>Login As</h2>
+            <div className="card card1 card__home card1__home">
+              <h2 className="h2__home">Login As</h2>
               <br />
               <br />
-              <div className="row mx-4">
+              <div className="row mx-4 row__home">
                 <div className="col-md-6">
                   <Link to="/student">
-                    <button className="btn btn-lg bg-danger shadow-hover mb-2 py-3">
+                    <button className="btn btn-lg bg-danger shadow-hover shadow-hover__home mb-2 py-3 btn__home">
                       <h2>Student</h2>
                     </button>
                   </Link>
                 </div>
                 <div className="col-md-6">
                   <Link to="/faculty">
-                    <button className="btn btn-group-lg bg-danger shadow-hover py-3 mb-2">
+                    <button className="btn btn-group-lg bg-danger shadow-hover shadow-hover__home py-3 mb-2 btn__home">
                       <h2>Faculty</h2>
                     </button>
                   </Link>
@@ -57,12 +57,14 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="footer">
-        <h4 style={{ marginRight: "10%" }}>Powered by</h4>
+      <div className="footer footer__home">
+        <h4 style={{ marginRight: "10%" }} className="h4__home">
+          Powered by
+        </h4>
         <img
           src={brl_logo}
           alt="brl-logo"
-          className="brl-logo"
+          className="brl-logo__home"
           style={{ marginRight: "10%" }}
         />
       </div>

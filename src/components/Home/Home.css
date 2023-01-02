@@ -7,17 +7,17 @@ body {
     background-color: #7b8a9b !important;
 }
 
-.akg-logo {
+.akg-logo__home {
     padding-left: 20px;
     padding-top: 20px;
 }
 
-h1 {
+.h1__home {
     font-weight: bolder;
     text-align: center;
 }
 
-.footer {
+.footer__home {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -27,12 +27,12 @@ h1 {
     ;
 }
 
-h4 {
+.h4__home {
     margin-bottom: 00px;
     margin-right: 20px;
 }
 
-.brl-logo {
+.brl-logo__home {
     height: 7em;
     margin-right: 20px;
 }
@@ -50,7 +50,7 @@ h4 {
     width: 50%;
 }
 
-.row:after {
+.row__home:after {
     content: "";
     display: table;
     clear: both;
@@ -65,24 +65,24 @@ h4 {
     }
 }
 
-h2 {
+.h2__home {
     text-align: center;
 }
 
-.btn {
+.btn__home {
     width: 100%;
     color: white;
     border-radius: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.shadow-hover:hover {
+.shadow-hover__home:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
     transition: 0.5s;
     transform: scale(1.05);
 }
 
-.card1 {
+.card1__home {
     border-radius: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 2em;

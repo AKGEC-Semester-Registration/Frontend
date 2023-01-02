@@ -73,13 +73,13 @@ const Student = () => {
           src={akg_logo}
           height="130em"
           width="130em"
-          className="akg-logo"
+          className="akg-logo__student"
           alt=""
         />
-        <h1>New Semester Registration</h1>
+        <h1 className="h1__student">New Semester Registration</h1>
       </div>
       <div className="container">
-        <div className="row">
+        <div className="row row__student">
           <div className="column side">
             <img
               src={boy_image}
@@ -93,9 +93,9 @@ const Student = () => {
             <br />
             <br />
 
-            <div className="card card1">
-              <div className="card redbox">
-                <h2>Student Login</h2>
+            <div className="card card1 card__student card1__student">
+              <div className="card card__student redbox redbox__student">
+                <h2 className="h2__student">Student Login</h2>
               </div>
               <br />
 
@@ -103,7 +103,7 @@ const Student = () => {
                 <div className="card-body__std">
                   <input
                     name="roll_no"
-                    className="form-control form-control-lg mb-2 p-3"
+                    className="form-control form-control__student form-control-lg mb-2 p-3"
                     type="text"
                     placeholder="ROLL NUMBER"
                     value={rollNo}
@@ -111,36 +111,36 @@ const Student = () => {
                   />
                   <input
                     name="full_name"
-                    className="form-control form-control-lg mb-4 p-3"
+                    className="form-control form-control__student form-control-lg mb-4 p-3"
                     type="text"
                     placeholder="FULL NAME"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                   />
                 </div>
-                <div className="form-row">
-                  <div className="form-group col-md"></div>
-                  <div className="form-group col-md btn1">
+                <div className="form-row form-row__student">
+                  <div className="form-group form-group__student col-md"></div>
+                  <div className="form-group form-group__student col-md btn btn__student1">
                     {!loader && (
                       <button
                         type="submit"
-                        className="btn btn-primary btn-lg"
+                        className="btn btn__student btn-primary btn-lg"
                         style={{ borderRadius: "15px" }}
                       >
-                        <h3>LOGIN</h3>
+                        <h3 className="h3__student">LOGIN</h3>
                       </button>
                     )}
                     {loader && (
                       <button
                         type="button"
-                        className="btn btn-primary btn-lg px-5"
+                        className="btn btn__student btn-primary btn-lg px-5"
                         style={{ borderRadius: "15px" }}
                       >
                         <span className="spinner-border spinner-border-lg"></span>
                       </button>
                     )}
                   </div>
-                  <div className="form-group col-md">
+                  <div className="form-group form-group__student col-md">
                     <Link to="/home">
                       <i
                         className="fas fa-arrow-circle-left"
@@ -159,12 +159,14 @@ const Student = () => {
         </div>
       </div>
 
-      <div className="footer">
-        <h4 style={{ marginRight: "10%" }}>Powered by</h4>
+      <div className="footer footer__student">
+        <h4 className="h4__student" style={{ marginRight: "10%" }}>
+          Powered by
+        </h4>
         <img
           src={brl_logo}
           alt="brl-logo"
-          className="brl-logo"
+          className="brl-logo__student"
           style={{ marginRight: "10%" }}
         />
       </div>

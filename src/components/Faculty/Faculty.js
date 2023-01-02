@@ -77,13 +77,13 @@ const Faculty = () => {
           src={akg_logo}
           height="130em"
           width="130em"
-          className="akg-logo"
+          className="akg-logo__faculty"
           alt=""
         />
-        <h1>New Semester Registration</h1>
+        <h1 className="h1__faculty">New Semester Registration</h1>
       </div>
       <div className="container">
-        <div className="row">
+        <div className="row row__faculty">
           <div className="column side">
             <img
               src={boy_image}
@@ -97,54 +97,54 @@ const Faculty = () => {
             <br />
             <br />
 
-            <div className="card card1">
-              <div className="card redbox ">
-                <h2>Faculty Login</h2>
+            <div className="card card1 card__faculty card1__faculty">
+              <div className="card redbox card__faculty redbox__faculty">
+                <h2 className="h2__faculty">Faculty Login</h2>
               </div>
               <br />
 
               <form onSubmit={loginFaculty}>
-                <div className="card-body">
+                <div className="card-body card-body__faculty">
                   <input
-                    className="form-control form-control-lg  mb-2 p-3"
+                    className="form-control form-control__faculty form-control-lg  mb-2 p-3"
                     type="text"
                     placeholder="USERNAME"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                   />
                   <input
-                    className="form-control form-control-lg mb-4 p-3"
+                    className="form-control form-control__faculty form-control-lg mb-4 p-3"
                     type="password"
                     placeholder="PASSWORD"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <div className="form-row">
-                  <div className="form-group col-md"></div>
-                  <div className="form-group col-md btn1">
+                <div className="form-row form-row__faculty">
+                  <div className="form-group form-group__faculty col-md"></div>
+                  <div className="form-group form-group__faculty col-md btn1">
                     {!loader && (
                       <button
                         type="submit"
-                        className="btn btn-primary btn-lg"
+                        className="btn btn__faculty btn-primary btn-lg"
                         style={{ borderRadius: "15px" }}
                       >
-                        <h3>LOGIN</h3>
+                        <h3 className="h3__faculty">LOGIN</h3>
                       </button>
                     )}
                     {loader && (
                       <button
                         type="button"
-                        className="btn btn-primary btn-lg px-5"
+                        className="btn btn__faculty btn-primary btn-lg px-5"
                         style={{ borderRadius: "15px" }}
                       >
-                        <h3>
+                        <h3 className="h3__faculty">
                           <span className="spinner-border"></span>
                         </h3>
                       </button>
                     )}
                   </div>
-                  <div className="form-group col-md">
+                  <div className="form-group form-group__faculty col-md">
                     <Link to="/home">
                       <i
                         className="fas fa-arrow-circle-left "
@@ -163,12 +163,14 @@ const Faculty = () => {
         </div>
       </div>
 
-      <div className="footer">
-        <h4 style={{ marginRight: "10%" }}>Powered by</h4>
+      <div className="footer footer__faculty">
+        <h4 className="h4__faculty" style={{ marginRight: "10%" }}>
+          Powered by
+        </h4>
         <img
           src={brl_logo}
           alt="brl-logo"
-          className="brl-logo"
+          className="brl-logo__faculty"
           style={{ marginRight: "10%" }}
         />
       </div>

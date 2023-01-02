@@ -7,17 +7,17 @@ body {
     background-color: #7b8a9b !important;
 }
 
-.akg-logo {
+.akg-logo__student {
     padding-left: 20px;
     padding-top: 20px;
 }
 
-h1 {
+.h1__student {
     font-weight: bolder;
     text-align: center;
 }
 
-.footer {
+.footer__student {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -27,12 +27,12 @@ h1 {
     ;
 }
 
-h4 {
+.h4__student {
     margin-bottom: 00px;
     margin-right: 20px;
 }
 
-.brl-logo {
+.brl-logo__student {
     height: 7em;
     margin-right: 20px;
 }
@@ -50,7 +50,7 @@ h4 {
     width: 50%;
 }
 
-.row:after {
+.row__student:after {
     content: "";
     display: table;
     clear: both;
@@ -65,25 +65,25 @@ h4 {
     }
 }
 
-h2 {
+.h2__student {
     text-align: center;
     font-weight: bold;
 }
 
-.btn {
+.btn__student {
     width: 100%;
     color: white;
     border-radius: 30px;
 }
 
-.card1 {
+.card1__student {
     border-radius: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 2em;
     z-index: 100;
 }
 
-.redbox {
+.redbox__student {
     width: 60%;
     margin-top: -15%;
     background-color: #d9534f;
@@ -100,20 +100,20 @@ h2 {
     width: 70%;
 }
 
-.form-control {
+.form-control__student {
     text-align: center;
     border-radius: 15px;
     background-color: #ebf4f7;
 }
 
 @media (max-width: 600px) {
-    h2 {
+    .h2__student {
         font-size: x-large;
     }
-    h3 {
+    .h3__student {
         font-size: x-large;
     }
-    .btn1 {
+    .btn1__student {
         width: 50%;
         margin: auto;
     }

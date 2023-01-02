@@ -1,10 +1,13 @@
 import "./Dashboard.css";
-import { React, useState, useEffect } from "react";
+
+import { React, useEffect, useState } from "react";
+
 import Api from "../../Api";
 import axios from "axios";
-import total_admins from "../../assets/Total admins.svg";
 import regd_students from "../../assets/Registered Students.svg";
+import total_admins from "../../assets/Total admins.svg";
 import total_students from "../../assets/Total Students.svg";
+
 const Dashboard = () => {
   const [countRegistered, setCountRegistered] = useState(0);
   const [countLeft, setCountLeft] = useState(0);
@@ -29,63 +32,81 @@ const Dashboard = () => {
   }, []);
   return (
     <div>
-      <div className="container-fluid">
-        <h1 style={{ color: "#065b9a" }} className="pl-4">
+      <div className="container-fluid container-fluid__dash">
+        <h1 style={{ color: "#065b9a" }} className="pl-4 pl-4__dash h1__dash">
           Admin Dashboard
         </h1>
         <br />
         <br />
-        <div className="card py-5 card-1">
+        <div className="card card__dash py-5 py-5__dash card-1 card-1__dash">
           <ul className="navbar nav">
-            <li className="pl-5">
-              <div className="card card-2 py-3">
-                <div className="row">
-                  <div className="card card-3">
-                    <img src={total_students} className="icon" alt="" />
+            <li className="pl-5 pl-5__dash li__dash">
+              <div className="card card__dash card-2 card-2__dash py-3 py-3__dash">
+                <div className="row row__dash">
+                  <div className="card card__dash card-3 card-3__dash">
+                    <img
+                      src={total_students}
+                      className="icon icon__dash"
+                      alt=""
+                    />
                   </div>
 
-                  <div className="text">
-                    <h5>
+                  <div className="text text__dash">
+                    <h5 className="h5__dash">
                       Total <br />
                       Students
                     </h5>
-                    <h2 style={{ color: "#065b9a" }}>{countStudent}</h2>
+                    <h2 style={{ color: "#065b9a" }} className="h2__dash">
+                      {countStudent}
+                    </h2>
                   </div>
                 </div>
               </div>
             </li>
-            <li className="px-4">
-              <div className="card card-2 py-3">
-                <div className="row">
-                  <div className="card card-3">
-                    <img src={regd_students} className="icon" alt="" />
+            <li className="px-4 px-4__dash li__dash">
+              <div className="card card__dash card-2 card-2__dash py-3 py-3__dash">
+                <div className="row row__dash">
+                  <div className="card card__dash card-3 card-3__dash">
+                    <img
+                      src={regd_students}
+                      className="icon icon__dash"
+                      alt=""
+                    />
                   </div>
 
-                  <div className="text">
-                    <h5>
+                  <div className="text text__dash">
+                    <h5 className="h5__dash">
                       Registered
                       <br />
                       Student
                     </h5>
-                    <h2 style={{ color: "#065b9a" }}>{countRegistered}</h2>
+                    <h2 style={{ color: "#065b9a" }} className="h2__dash">
+                      {countRegistered}
+                    </h2>
                   </div>
                 </div>
               </div>
             </li>
-            <li className="pr-5">
-              <div className="card card-2 py-3">
-                <div className="row">
-                  <div className="card card-3">
-                    <img src={total_admins} className="icon" alt="" />
+            <li className="pr-5 pr-5__dash li__dash">
+              <div className="card card__dash card-2 card-2__dash py-3 py-3__dash">
+                <div className="row row__dash">
+                  <div className="card card__dash card-3 card-3__dash">
+                    <img
+                      src={total_admins}
+                      className="icon icon__dash"
+                      alt=""
+                    />
                   </div>
 
-                  <div className="text">
-                    <h5>
+                  <div className="text text__dash">
+                    <h5 className="h5__dash">
                       Remaining
                       <br />
                       Students
                     </h5>
-                    <h2 style={{ color: "#065b9a" }}>{countLeft}</h2>
+                    <h2 style={{ color: "#065b9a" }} className="h2__dash">
+                      {countLeft}
+                    </h2>
                   </div>
                 </div>
               </div>

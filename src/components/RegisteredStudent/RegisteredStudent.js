@@ -77,7 +77,9 @@ const RegisteredStudent = () => {
 
   const fetchRegStd = async (currentPage) => {
     const res = await axios
-      .get(Api.getregstdUrl + `?_page=${currentPage}&_limit=${limit}`)
+      .get(Api.getregstdUrl + `?_page=${currentPage}&_limit=${limit}`, {
+        headers: { Authorization: `${localStorage.facultyToken}` },
+      })
       .catch((err) => console.log(err));
     if (res) {
       return res.data.data;
@@ -108,59 +110,67 @@ const RegisteredStudent = () => {
       <Dialog open={open} onClose={handleClose} maxWidth={"xs"}>
         <FacultyPopup onSuccessfulClose={successfulCloseHandler} />
       </Dialog>
-      <div className="container">
+      <div className="container container__rs">
         <div
-          className="row m-3 p-3"
+          className="row row__rs m-3 p-3"
           style={{
             backgroundColor: "#065b9a",
             color: "white",
             borderRadius: "20px",
           }}
         >
-          <div className="col-10 m-auto">
-            <div className="row">
-              <div className="col-12">
-                <h2 style={{ textAlign: "left" }}>Registered Students</h2>
+          <div className="col-10 col-10__rs m-auto">
+            <div className="row row__rs">
+              <div className="col-12 col-12__rs">
+                <h2 style={{ textAlign: "left" }} className="h2__rs">
+                  Registered Students
+                </h2>
               </div>
             </div>
-            <div className="row">
-              <div className="col-12">
-                <h4 style={{ fontWeight: "lighter" }}>
+            <div className="row row__rs">
+              <div className="col-12 col-12__rs">
+                <h4 style={{ fontWeight: "lighter" }} className="h4__rs">
                   List of all the students
                 </h4>
               </div>
             </div>
           </div>
-          <div className="col-2">
-            <div className="row pt-2">
-              <div className="col-12" style={{ textAlign: "-webkit-center" }}>
+          <div className="col-2 col-2__rs">
+            <div className="row row__rs pt-2">
+              <div
+                className="col-12 col-12__rs"
+                style={{ textAlign: "-webkit-center" }}
+              >
                 <img
                   src={edit_img}
                   onClick={openDialog}
-                  className="avatar d-block"
+                  className="avatar avatar__rs d-block d-block__rs"
                   alt=""
                 />
               </div>
             </div>
-            <div className="row pt-2">
-              <div className="col-12" style={{ textAlignLast: "center" }}>
-                <h6>{faculty_current}</h6>
+            <div className="row row__rs pt-2">
+              <div
+                className="col-12 col-12__rs"
+                style={{ textAlignLast: "center" }}
+              >
+                <h6 className="h6__rs">{faculty_current}</h6>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="row row1">
-          <div className="col-9">
-            <div className="table_card">
-              <table className="table table-hover">
+        <div className="row row__rs row1 row__rs">
+          <div className="col-9 col-9__rs">
+            <div className="table_card table_card__rs">
+              <table className="table table__rs table-hover table-hover__rs">
                 <thead>
                   <tr>
-                    <th scope="col">S.No.</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Roll No.</th>
-                    <th scope="col">Branch</th>
-                    <th scope="col">Year</th>
+                    <th scope="col col__rs">S.No.</th>
+                    <th scope="col col__rs">Name</th>
+                    <th scope="col col__rs">Roll No.</th>
+                    <th scope="col col__rs">Branch</th>
+                    <th scope="col col__rs">Year</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -168,7 +178,7 @@ const RegisteredStudent = () => {
                     <tr>
                       <td colSpan="5">
                         <div
-                          className="spin"
+                          className="spin spin__rs"
                           style={{ margin: "auto", width: "fit-content" }}
                         >
                           <Spinner
@@ -218,9 +228,10 @@ const RegisteredStudent = () => {
               </div>
             </div>
           </div>
-          <div className="col-3">
-            <mat-card className="subcard" style={{ height: "280px" }}>
+          <div className="col-3 col-3__rs">
+            <div className="subcard subcard__rs" style={{ height: "280px" }}>
               <h3
+                className="h3__rs"
                 style={{
                   color: "black",
                   textAlign: "center",
@@ -229,11 +240,14 @@ const RegisteredStudent = () => {
               >
                 Filter
               </h3>
-              <div className="card w-90">
-                <div className="card-body">
+              <div className="card w-90 card__rs">
+                <div className="card-body card-body__rs">
                   <form onSubmit={func2}>
-                    <div className="row">
-                      <div className="col-5" style={{ lineHeight: "2.5" }}>
+                    <div className="row row__rs">
+                      <div
+                        className="col-5 col-5__rs"
+                        style={{ lineHeight: "2.5" }}
+                      >
                         <p
                           style={{
                             color: "black",
@@ -244,10 +258,13 @@ const RegisteredStudent = () => {
                           YEAR
                         </p>
                       </div>
-                      <div className="col-7" style={{ lineHeight: "2.5" }}>
+                      <div
+                        className="col-7 col-7__rs"
+                        style={{ lineHeight: "2.5" }}
+                      >
                         <select
                           id="inputCourse"
-                          className="form-control"
+                          className="form-control form-control__rs"
                           name="year"
                           value={createStd.year}
                           onChange={(e) =>
@@ -267,8 +284,11 @@ const RegisteredStudent = () => {
                         </select>
                       </div>
                     </div>
-                    <div className="row">
-                      <div className="col-5" style={{ lineHeight: "2.5" }}>
+                    <div className="row row__rs">
+                      <div
+                        className="col-5 col-5__rs"
+                        style={{ lineHeight: "2.5" }}
+                      >
                         <p
                           style={{
                             color: "black",
@@ -279,10 +299,13 @@ const RegisteredStudent = () => {
                           BRANCH
                         </p>
                       </div>
-                      <div className="col-7" style={{ lineHeight: "2.5" }}>
+                      <div
+                        className="col-7 col-7__rs"
+                        style={{ lineHeight: "2.5" }}
+                      >
                         <select
                           id="inputCourse"
-                          className="form-control"
+                          className="form-control form-control__rs"
                           name="branch"
                           value={createStd.branch}
                           onChange={(e) =>
@@ -310,7 +333,7 @@ const RegisteredStudent = () => {
                     </div>
                     <button
                       type="submit"
-                      className="btn btn-primary btn-lg"
+                      className="btn btn__rs btn-primary btn-primary__rs btn-lg btn-lg__rs"
                       style={{
                         backgroundColor: "#065b9a",
                         borderRadius: "18px",
@@ -325,7 +348,7 @@ const RegisteredStudent = () => {
                   </form>
                 </div>
               </div>
-            </mat-card>
+            </div>
           </div>
         </div>
       </div>

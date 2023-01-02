@@ -1,4 +1,4 @@
-.card {
+.card__rs {
     /* width: 90%; */
     /* margin-left: 3%; */
     /* margin-right: 6%; */
@@ -7,13 +7,13 @@
     border-radius: 20px;
 }
 
-.bar {
+.bar__rs {
     width: 92%;
     margin: auto;
     overflow: hidden;
 }
 
-.example-full-width {
+.example-full-width__rs {
     color: white;
 }
 
@@ -22,7 +22,7 @@
     margin-left: 77%;
 } */
 
-.subcard {
+.subcard__rs {
     /* margin-top: 1.5%; */
     /* margin-left: 1.8%; */
     border-radius: 20px;
@@ -44,11 +44,11 @@
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.row1::-webkit-scrollbar::-webkit-scrollbar {
+.row1__rs::-webkit-scrollbar::-webkit-scrollbar {
     display: none;
 }
 
-.row1 {
+.row1__rs {
     margin: auto;
     width: 99.95%;
     margin-top: 20px;
@@ -61,12 +61,12 @@
 }
 
 @media only screen and (min-height: 700px) {
-    .bar {
+    .bar__rs {
         overflow: hidden;
     }
 }
 
-.avatar {
+.avatar__rs {
     height: 4.5rem;
     /* width: 3.7rem; */
     border-radius: 50%;
@@ -77,11 +77,11 @@
     /* color: white */
 }
 
-.avatar:hover {
+.avatar__rs:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.fname {
+.fname__rs {
     display: block;
     float: right;
     text-transform: capitalize;
@@ -90,7 +90,7 @@
     font-family: "Roboto", sans-serif;
 }
 
-.page {
+.page__rs {
     /* bottom: 0;
     position: absolute; */
     width: fit-content;
@@ -98,7 +98,7 @@
     padding-right: 40px;
 }
 
-.table_card {
+.table_card__rs {
     overflow: hidden !important;
     border-radius: 20px;
     /* margin-top: 1.5%; */
@@ -116,15 +116,15 @@
 
 }
 
-.spin ::ng-deep .mat-progress-spinner circle,
+.spin__rs ::ng-deep .mat-progress-spinner circle,
 .mat-spinner circle {
     stroke: #065b9a;
 }
 
-li {
+/* .li__rs {
     text-align: center !important;
-}
-.pagination-bar {
+} */
+.pagination-bar__rs {
     width: 100%;
     display: flex;
     justify-content: center;

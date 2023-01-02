@@ -1,26 +1,26 @@
-.container-fluid {
+.container-fluid__dash {
   margin-top: 10%;
 }
 
-li {
+.li__dash {
   width: 32%;
 }
 
-.card {
+.card__dash {
   border-radius: 20px;
 }
 
-.card-1 {
+.card-1__dash {
   width: 95%;
   background-color: #a0d7ff;
   margin: auto;
 }
 
-.card-2 {
+.card-2__dash {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-3 {
+.card-3__dash {
   background-color: #065b9a;
   margin-top: -50px;
   padding: 20px;
@@ -31,87 +31,87 @@ li {
   width: 120px;
 }
 
-.text {
+.text__dash {
   margin: auto;
 }
 
-.icon {
+.icon__dash {
   height: auto;
   width: 100%;
 }
 
-.col-7 {
+.col-7__dash {
   padding: 0;
 }
 
-.col-5 {
+.col-5__dash {
   padding-left: 0;
 }
 
-.row {
+.row__dash {
   width: 100%;
 }
 
-h5 {
+.h5__dash {
   font-size: 1.2em;
 }
 
 @media only screen and (max-width: 790px) and (min-width: 300px) {
-  .card-1 {
+  .card-1__dash {
     width: 99% !important;
   }
-  .card-3 {
+  .card-3__dash {
     padding: 1.5rem;
     width: 45%;
   }
-  ul {
+  .ul__dash {
     flex-direction: column;
   }
-  li {
+  .li__dash {
     margin: auto;
     padding-bottom: 2rem;
     width: 90%;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
-  .px-4 {
+  .px-4__dash {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  .pl-5 {
+  .pl-5__dash {
     padding-left: 0 !important;
   }
-  .pr-5 {
+  .pr-5__dash {
     padding-right: 0 !important;
   }
 }
 
 @media only screen and (max-width: 1250px) and (max-width: 600px) {
-  .card-3 {
+  .card-3__dash {
     padding: 1.5rem;
     width: 45%;
   }
-  ul {
+  .ul__dash {
     flex-direction: column;
   }
-  li {
+  .li__dash {
     margin: auto;
     padding-bottom: 2rem;
     width: 90%;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
-  .px-4 {
+  .px-4__dash {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  .pl-5 {
+  .pl-5__dash {
     padding-left: 0 !important;
   }
-  .pr-5 {
+  .pr-5__dash {
     padding-right: 0 !important;
   }
-  .card-1 {
+  .card-1__dash {
     width: 60%;
   }
 }

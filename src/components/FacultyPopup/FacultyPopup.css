@@ -1,15 +1,11 @@
-button:focus,
-button:active:focus,
-button.active:focus {
+.button__fp:focus,
+.button__fp:active:focus,
+.button__fp.active:focus {
     outline: none !important;
     outline-style: none !important;
 }
 
-/* button {
-    width: 100%;
-} */
-
-.head {
+.head__fp {
     background-color: lightskyblue;
     text-align: center;
     font-size: x-large;
@@ -20,11 +16,11 @@ button.active:focus {
     margin-top: 20px;
 }
 
-a {
+.a__fp {
     color: white;
     text-transform: capitalize;
 }
-a:hover {
+.a__fp:hover {
     color: white;
     text-decoration: none;
     cursor: pointer;
@@ -40,4 +36,11 @@ a:hover {
     margin: 5px !important;
     text-transform: capitalize !important;
     margin-bottom: 15px !important;
+    align-items: center;
+}
+
+.div2__fp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

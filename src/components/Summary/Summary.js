@@ -29,12 +29,12 @@ const Summary = () => {
   }, []);
 
   return (
-    <div className="bar" style={{ overflow: "hidden" }}>
+    <div className="bar bar__summary" style={{ overflow: "hidden" }}>
       <div
         className="card__summary card"
         style={{ backgroundColor: "#065b9a" }}
       >
-        <div className="card-body">
+        <div className="card-body card-body__summary">
           <div style={{ fontWeight: "600", fontSize: "xx-large" }}>Summary</div>
           <br />
           <div style={{ marginTop: "3%", fontSize: "x-large", float: "left" }}>
@@ -42,9 +42,9 @@ const Summary = () => {
           </div>
         </div>
       </div>
-      <div className="row r-1">
+      <div className="row r-1 row__summary r-1__summary">
         <div
-          className="col-sm-11 cd mat__summary"
+          className="col-sm-11 col-sm-11__summary cd cd__summary mat__summary"
           style={{
             borderRadius: "20px",
             marginTop: "1.5%",
@@ -52,17 +52,21 @@ const Summary = () => {
             marginBottom: "2rem",
           }}
         >
-          <div className="row hrow">
-            <div className=" col-md b ">Percentage</div>
-            <div className="col-md b ">Branch</div>
-            <div className="col-md b ">Remaining</div>
-            <div className="col-md b ">Registered</div>
-            <div className="col-md b ">Total</div>
+          <div className="row hrow row__summary hrow__summary">
+            <div className="col-md col-md__summary b b__summary">
+              Percentage
+            </div>
+            <div className="col-md col-md__summary b b__summary">Branch</div>
+            <div className="col-md col-md__summary b b__summary">Remaining</div>
+            <div className="col-md col-md__summary b b__summary">
+              Registered
+            </div>
+            <div className="col-md col-md__summary b b__summary">Total</div>
           </div>
           {loader && (
             <div>
               <div
-                className="spin"
+                className="spin spin__summary"
                 style={{ margin: "auto", width: "fit-content" }}
               >
                 <Spinner
@@ -76,25 +80,40 @@ const Summary = () => {
           )}
           {summary.map((data, index) => {
             return (
-              <div className="row trow" key={data._id}>
-                <div className=" col-md b ">
+              <div
+                className="row row__summary trow trow__summary"
+                key={data._id}
+              >
+                <div className=" col-md b col-md__summary b__summary">
                   <span
-                    className="badge badge-primary "
+                    className="badge badge__summary badge-primary badge-primary__summary"
                     style={{ fontSize: "1.5em" }}
                   >
                     {data.percentage}%
                   </span>
                 </div>
-                <div className="col-md b " data-label="Branch ">
+                <div
+                  className="col-md b col-md__summary b__summary"
+                  data-label="Branch "
+                >
                   {data._id}
                 </div>
-                <div className="col-md b " data-label="Remaining ">
+                <div
+                  className="col-md b col-md__summary b__summary"
+                  data-label="Remaining "
+                >
                   {data.totalLeft}
                 </div>
-                <div className="col-md b " data-label="Registered ">
+                <div
+                  className="col-md b col-md__summary b__summary"
+                  data-label="Registered "
+                >
                   {data.totalRegesteredStudents}
                 </div>
-                <div className="col-md b " data-label="Total ">
+                <div
+                  className="col-md b col-md__summary b__summary"
+                  data-label="Total "
+                >
                   {data.totalStudents}
                 </div>
               </div>

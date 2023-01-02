@@ -8,6 +8,7 @@ import CreateStudent from "./components/CreateStudent/CreateStudent";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Faculty from "./components/Faculty/Faculty";
 import Home from "./components/Home/Home";
+import Proceed from "./components/Proceed/Proceed";
 import RegisteredStudent from "./components/RegisteredStudent/RegisteredStudent";
 import { BrowserRouter as Router } from "react-router-dom";
 import Student from "./components/Student/Student";
@@ -23,6 +24,7 @@ function App() {
           <Route path="" element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="student" element={<Student />} />
+          <Route path="proceed" element={<Proceed />} />
           <Route path="faculty" element={<Faculty />} />
           <Route path="facultypage/dashboard" element={<Dashboard />} />
           <Route path="facultypage/createfaculty" element={<CreateFaculty />} />

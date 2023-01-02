@@ -7,32 +7,32 @@
     border-radius: 20px;
 }
 
-.example-full-width {
+.example-full-width__summary {
     color: white;
 }
 
-.r-1 {
+.r-1__summary {
     width: 98%;
 }
 
-.specify {
+.specify__summary {
     color: #065b9a;
     font-weight: 550;
     font-size: 20px;
 }
 
 @media only screen and (min-height: 700px) {
-    .bar {
+    .bar__summary {
         overflow: hidden;
     }
 }
 
-.cd {
+.cd__summary {
     padding-left: 5rem;
     padding-right: 5rem;
 }
 
-.trow {
+.trow__summary {
     padding: 10px 25px;
     display: flex;
     justify-content: space-between;
@@ -41,12 +41,12 @@
     border-radius: 10px;
 }
 
-.col-md {
+.col-md__summary {
     text-align: center;
     margin: auto;
 }
 
-.hrow {
+.hrow__summary {
     padding: 10px 25px;
     display: flex;
     justify-content: space-between;
@@ -55,20 +55,20 @@
     font-size: larger;
 }
 
-.b {
+.b__summary {
     font-weight: bold;
 }
 
-.spin ::ng-deep .mat-progress-spinner circle,
+.spin__summary ::ng-deep .mat-progress-spinner circle,
 .mat-spinner circle {
     stroke: #065b9a;
 }
 
 @media all and (max-width: 767px) {
-    .hrow {
+    .hrow__summary {
         display: none;
     }
-    .b:before {
+    .b__summary:before {
         padding-right: 10px;
         content: attr(data-label);
         flex-basis: 50%;

@@ -1,8 +1,11 @@
 import "./CreateFaculty.css";
-import Api from "../../Api";
+
 import { React, useState } from "react";
-import { toast } from "react-toastify";
+
+import Api from "../../Api";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 const CreateFaculty = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [createFaculty, setCreateFaculty] = useState({
@@ -19,7 +22,7 @@ const CreateFaculty = () => {
     });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(e.target);
     if (
@@ -31,26 +34,28 @@ const CreateFaculty = () => {
     ) {
       toast.warning("Please fill all fields first!", {
         position: toast.POSITION.BOTTOM_RIGHT,
-        theme: "colored"
+        theme: "colored",
       });
       return;
     }
     setIsLoading(true);
-    const res = await axios.post(Api.createfacultyUrl, createFaculty, {
-      headers: { Authorization: `${localStorage.facultyToken}` },
-    }).catch(err => {
-      console.log(err);
-      var errMsg = err.errors;
-      setIsLoading(false);
-      toast.error(`${errMsg}`, {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        theme: "colored"
+    const res = await axios
+      .post(Api.createfacultyUrl, createFaculty, {
+        headers: { Authorization: `${localStorage.facultyToken}` },
+      })
+      .catch((err) => {
+        console.log(err);
+        var errMsg = err.errors;
+        setIsLoading(false);
+        toast.error(`${errMsg}`, {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          theme: "colored",
+        });
       });
-    })
-    if(res) {
+    if (res) {
       toast.success("Faculty Created Successfully!", {
         position: toast.POSITION.BOTTOM_RIGHT,
-        theme: "colored"
+        theme: "colored",
       });
       setIsLoading(false);
       setCreateFaculty({});
@@ -58,29 +63,32 @@ const CreateFaculty = () => {
   };
   return (
     <div>
-      <div className="container">
-        <div className="card card-01">
-          <h2 style={{ width: "fit-content" }}>Create Faculty</h2>
+      <div className="container container__cf">
+        <div className="card card__cf card-01 card-01__cf">
+          <h2 style={{ width: "fit-content" }} className="h2__cf">
+            Create Faculty
+          </h2>
           <br />
           <div>
-            <h4 style={{ width: "fit-content" }}>Add a new faculty</h4>
+            <h4 style={{ width: "fit-content" }} className="h4__cf">
+              Add a new faculty
+            </h4>
           </div>
         </div>
-        <div className="card card-02">
+        <div className="card card__cf card-02 card-02__cf">
           <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <div className="form-group col-md-6">
+            <div className="form-row form-row__cf">
+              <div className="form-group form-group__cf col-md-6 col-md-6__cf">
                 <label htmlFor="inputDepartment">Department</label>
                 <select
                   id="inputDepartment"
-                  className="form-control"
+                  className="select__cf form-control form-control__cf"
                   onChange={handleChange}
                   value={createFaculty.department}
                   name="department"
                 >
-                  <option defaultValue={"HI"}>
-                    Applied Science & Humanities
-                  </option>
+                  <option value={""}></option>
+                  <option>Applied Science & Humanities</option>
                   <option>Computer Science and Engineering</option>
                   <option>Mechanical Engineering</option>
                   <option>Civil Engineering</option>
@@ -91,12 +99,12 @@ const CreateFaculty = () => {
               </div>
             </div>
 
-            <div className="form-row">
-              <div className="form-group col-md-6">
+            <div className="form-row form-row__cf">
+              <div className="form-group form-group__cf col-md-6 col-md-6__cf">
                 <label htmlFor="inputname">Full Name</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="input__cf form-control form-control__cf"
                   id="inputname"
                   name="name"
                   onChange={handleChange}
@@ -104,23 +112,23 @@ const CreateFaculty = () => {
                 />
               </div>
             </div>
-            <div className="form-row">
-              <div className="form-group col-md-6">
+            <div className="form-row form-row__cf">
+              <div className="form-group form-group__cf col-md-6 col-md-6__cf">
                 <label htmlFor="inputPassword">Password</label>
                 <input
                   type="password"
-                  className="form-control"
+                  className="input__cf form-control form-control__cf"
                   id="inputPassword"
                   name="password"
                   onChange={handleChange}
                   value={createFaculty.password}
                 />
               </div>
-              <div className="form-group col-md-6">
+              <div className="form-group form-group__cf col-md-6 col-md-6__cf">
                 <label htmlFor="inputPassword"> Confirm Password</label>
                 <input
                   type="password"
-                  className="form-control"
+                  className="input__cf form-control form-control__cf"
                   id="inputPassword1"
                   name="passwordConfirm"
                   onChange={handleChange}
@@ -128,28 +136,34 @@ const CreateFaculty = () => {
                 />
               </div>
             </div>
-            <div className="form-row">
-              <div className="form-group col-md-6">
+            <div className="form-row form-row__cf">
+              <div className="form-group form-group__cf col-md-6 col-md-6__cf">
                 <label htmlFor="inputusername">Username</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="input__cf form-control form-control__cf"
                   name="username"
                   onChange={handleChange}
                   value={createFaculty.username}
                 />
               </div>
 
-              <div className=" col-md-6">
+              <div className="col-md-6 col-md-6__cf">
                 <label style={{ color: "transparent" }}>submit</label>
-                <div className="form-group grp">
+                <div className="form-group form-group__cf grp grp__cf">
                   {!isLoading && (
-                    <button type="submit" className="btn btn-blue px-5 py-1">
+                    <button
+                      type="submit"
+                      className="btn btn__cf btn-blue btn-blue__cf px-5 px-5__cf py-1 py-1__cf"
+                    >
                       SUBMIT
                     </button>
                   )}
                   {isLoading && (
-                    <button type="submit" className="btn btn-blue px-5 py-1">
+                    <button
+                      type="submit"
+                      className="btn btn__cf btn-blue btn-blue__cf px-5 px-5__cf py-1 py-1__cf"
+                    >
                       <span className="spinner-border "></span>
                     </button>
                   )}

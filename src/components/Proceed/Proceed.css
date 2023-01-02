@@ -1,0 +1,122 @@
+body {
+    background-image: url('../../assets/bg-01.svg');
+    max-height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #7b8a9b !important;
+}
+
+.akg-logo__pro {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.h1__pro {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.footer__pro {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: right;
+    border: 10px;
+    ;
+}
+
+.h4__pro {
+    margin-bottom: 00px;
+    margin-right: 20px;
+}
+
+.brl-logo__pro {
+    height: 7em;
+    margin-right: 20px;
+}
+
+.column__pro {
+    float: left;
+    padding: 10px;
+}
+
+.column__pro.side__pro {
+    width: 25%;
+}
+
+.column__pro.middle__pro {
+    width: 50%;
+}
+
+.row__pro:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column__pro.side__pro {
+        display: none;
+    }
+    .column__pro.middle__pro {
+        width: 100%;
+    }
+}
+
+.redbox__pro {
+    width: fit-content;
+    margin-top: -16%;
+    background-color: #d9534f;
+    color: white;
+    padding: 20px;
+    align-self: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.card1__pro {
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2em;
+    z-index: 100;
+    color: #0275d8;
+    text-align: center;
+}
+
+.h2__pro {
+    text-align: center;
+    font-weight: bold;
+}
+
+.h3__pro {
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+.btn__pro {
+    background-color: #0275d8;
+    border-radius: 25px;
+    width: fit-content;
+    margin: auto;
+}
+
+.a__pro {
+    width: fit-content;
+    align-self: center;
+}
+
+.btn__pro:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 600px) {
+    .h1__pro {
+        font-size: x-large;
+    }
+    .h2__pro {
+        font-size: x-large;
+    }
+}

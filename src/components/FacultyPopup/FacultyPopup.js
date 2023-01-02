@@ -24,19 +24,33 @@ const FacultyPopup = (props) => {
   };
   return (
     <div className="container">
-      <div className="head">Faculty Options</div>
-      <Button variant="contained" className="fp__btn">
-        <Link to="/facultypage/update-faculty">Update Faculty</Link>
-      </Button>
-      <Button variant="contained" className="fp__btn">
-        <Link to="/facultypage/update-password">Update Password</Link>
-      </Button>
-      <Button variant="contained" onClick={facultyLogout} className="fp__btn">
-        LogOut
-      </Button>
-      <Button variant="contained" onClick={handleClose} className="fp__btn1">
-        Close
-      </Button>
+      <div className="head head__fp">Faculty Options</div>
+      <div className="div2__fp">
+        <Button variant="contained" className="fp__btn button__fp">
+          <Link to="/facultypage/update-faculty" className="a__fp">
+            Update Faculty
+          </Link>
+        </Button>
+        <Button variant="contained" className="fp__btn button__fp">
+          <Link to="/facultypage/update-password" className="a__fp">
+            Update Password
+          </Link>
+        </Button>
+        <Button
+          variant="contained"
+          onClick={facultyLogout}
+          className="fp__btn button__fp"
+        >
+          LogOut
+        </Button>
+        <Button
+          variant="contained"
+          onClick={handleClose}
+          className="fp__btn1 button__fp"
+        >
+          Close
+        </Button>
+      </div>
     </div>
   );
 };

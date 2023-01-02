@@ -1,4 +1,4 @@
-.container {
+.container__cf {
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -8,7 +8,7 @@
   flex-direction: column;
 }
 
-.card-01 {
+.card-01__cf {
   margin-top: 5%;
   padding: 1.5rem;
   color: white;
@@ -17,11 +17,11 @@
   width: 80%;
 }
 
-h4 {
+.h4__cf {
   font-weight: lighter;
 }
 
-.card-02 {
+.card-02__cf {
   margin-top: 2rem;
   padding: 2rem;
   border-radius: 20px;
@@ -36,29 +36,29 @@ h4 {
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 30px 0 rgba(0, 0, 0, 0.26);
 }
 
-input,
-select {
+.input__cf,
+.select__cf {
   border-color: #065b9a;
   border-style: solid;
   border-width: 2px;
   border-radius: 5px;
 }
 
-.col-md-7,
-.col-md-5,
-.col-md-2,
-.col-md-4,
-.col-md-6,
-.col-md-3 {
+.col-md-7__cf,
+.col-md-5__cf,
+.col-md-2__cf,
+.col-md-4__cf,
+.col-md-6__cf,
+.col-md-3__cf {
   padding: 0.1rem 1rem 0.1rem 1rem;
 }
 
-.grp {
+.grp__cf {
   margin: auto;
   width: fit-content;
 }
 
-.btn-blue {
+.btn-blue__cf {
   background-color: #065b9a;
   color: white;
   font-size: 1.3rem;
@@ -67,6 +67,6 @@ select {
   width: 100%;
 }
 
-.btn-blue:hover {
+.btn-blue__cf:hover {
   background-color: #176fb3;
 }
