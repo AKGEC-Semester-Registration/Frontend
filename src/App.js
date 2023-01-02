@@ -4,10 +4,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes } from "react-router";
 
 import CreateFaculty from "./components/CreateFaculty/CreateFaculty";
+import CreateLibraryDue from "./components/CreateLibraryDue/CreateLibraryDue";
 import CreateStudent from "./components/CreateStudent/CreateStudent";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Faculty from "./components/Faculty/Faculty";
 import Home from "./components/Home/Home";
+import ManageStudent from "./components/ManageStudent/ManageStudent";
 import Proceed from "./components/Proceed/Proceed";
 import RegisteredStudent from "./components/RegisteredStudent/RegisteredStudent";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -28,6 +30,11 @@ function App() {
           <Route path="faculty" element={<Faculty />} />
           <Route path="facultypage/dashboard" element={<Dashboard />} />
           <Route path="facultypage/createfaculty" element={<CreateFaculty />} />
+          <Route path="facultypage/managestudent" element={<ManageStudent />} />
+          <Route
+            path="facultypage/create-lib-due"
+            element={<CreateLibraryDue />}
+          />
           <Route path="facultypage/createstd" element={<CreateStudent />} />
           <Route path="facultypage/summary" element={<Summary />} />
           <Route

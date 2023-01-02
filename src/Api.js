@@ -17,6 +17,7 @@ const Api = {
   logoutfacultyUrl: url + "faculty/logout",
   getSummary: url + "faculty/summery",
   stddueUrl: url + "student/studentDue",
+  clearLibDue: url + "faculty/clearDue",
 };
 
 export default Api;
