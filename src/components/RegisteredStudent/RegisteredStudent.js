@@ -21,9 +21,29 @@ const RegisteredStudent = () => {
   const [students, setStudents] = useState([]);
   const [totalRecords, setTotalRecords] = useState("");
   const [open, setOpen] = useState(false);
-  const [pageCount, setPageCount] = useState(0);
 
-  let limit = 8;
+  const [pageNumber, setPageNumber] = useState(0);
+  const usersPerPage = 8;
+  const pagesVisited = pageNumber * usersPerPage;
+  const displayStudents = students
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((data, i) => {
+      return (
+        <tr key={data._id}>
+          <th scope="row">{usersPerPage * pageNumber + i + 1}</th>
+          <td>{data.full_name}</td>
+          <td>{data.roll_no}</td>
+          <td>{data.branch}</td>
+          <td>{data.year}</td>
+        </tr>
+      );
+    });
+
+  const pageCount = Math.ceil(students.length / usersPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
   const getFilterRegUrl = async (branch, year) => {
     var url = "";
@@ -46,21 +66,22 @@ const RegisteredStudent = () => {
     }
   };
 
-  const func2 = () => {
+  const func2 = (e) => {
+    e.preventDefault();
+    setPageNumber(0);
     getFilterRegUrl(createStd.branch, createStd.year);
   };
 
   const getRegStd = async () => {
     const res = await axios
-      .get(Api.getregstdUrl + `?_page=1&limit=${limit}`, {
+      .get(Api.getregstdUrl, {
         headers: { Authorization: `${localStorage.facultyToken}` },
       })
       .catch((err) => console.log(err));
     if (res) {
-      console.log(res);
+      console.log(res.data);
       setStudents(res.data.data);
       setTotalRecords(res.data.data.length);
-      setPageCount(Math.ceil(res.data.data.length / limit));
       setLoader(false);
     }
   };
@@ -73,25 +94,8 @@ const RegisteredStudent = () => {
     setFacultyCurrent(decoded.name);
     console.warn(faculty_current);
     getRegStd();
-  }, [limit]);
-
-  const fetchRegStd = async (currentPage) => {
-    const res = await axios
-      .get(Api.getregstdUrl + `?_page=${currentPage}&_limit=${limit}`, {
-        headers: { Authorization: `${localStorage.facultyToken}` },
-      })
-      .catch((err) => console.log(err));
-    if (res) {
-      return res.data.data;
-    }
-  };
-
-  const handlePageClick = async (data) => {
-    console.log(data.selected);
-    let currentPage = data.selected + 1;
-    const regStd = await fetchRegStd(currentPage);
-    setStudents(regStd);
-  };
+    setLoader(false);
+  }, []);
 
   const openDialog = () => {
     setOpen(true);
@@ -191,29 +195,16 @@ const RegisteredStudent = () => {
                       </td>
                     </tr>
                   )}
-                  {students.map((data, index) => {
-                    // console.log(currentTableData);
-                    return (
-                      <tr key={data._id}>
-                        <th scope="row">{index + 1}</th>
-                        <td>{data.full_name}</td>
-                        <td>{data.roll_no}</td>
-                        <td>{data.branch}</td>
-                        <td>{data.year}</td>
-                      </tr>
-                    );
-                  })}
+                  {displayStudents}
                 </tbody>
               </table>
               <div className="pg__rs">
                 <ReactPaginate
-                  previousLabel={"previous"}
-                  nextLabel={"next"}
+                  previousLabel={"Previous"}
+                  nextLabel={"Next"}
                   breakLabel={"..."}
                   pageCount={pageCount}
-                  marginPagesDisplayed={2}
-                  pageRangeDisplayed={3}
-                  onPageChange={handlePageClick}
+                  onPageChange={changePage}
                   containerClassName={"pagination justify-content-center"}
                   pageClassName={"page-item"}
                   pageLinkClassName={"page-link"}
@@ -224,7 +215,7 @@ const RegisteredStudent = () => {
                   breakClassName={"page-item"}
                   breakLinkClassName={"page-link"}
                   activeClassName={"active"}
-                />
+                ></ReactPaginate>
               </div>
             </div>
           </div>
@@ -323,6 +314,7 @@ const RegisteredStudent = () => {
                           <option value={""}></option>
                           <option value={"IT"}>IT</option>
                           <option value={"CSE"}>CSE</option>
+                          <option value={"CS"}>CS</option>
                           <option value={"ECE"}>ECE</option>
                           <option value={"EN"}>EN</option>
                           <option value={"CE"}>CE</option>

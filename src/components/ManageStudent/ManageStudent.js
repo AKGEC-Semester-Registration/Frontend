@@ -3,52 +3,118 @@ import "./ManageStudent.css";
 import { React, useEffect, useForm, useState } from "react";
 
 import Api from "../../Api";
+import { Dialog } from "@mui/material";
 import FacultyPopup from "./../FacultyPopup/FacultyPopup";
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
+import Spinner from "react-spinner-material";
 import axios from "axios";
 import editimg from "../../assets/edit.png";
 import jwt_decode from "jwt-decode";
 
 const ManageStudent = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [stdList, setStdList] = useState([]);
   const [totalRecords, setTotalRecords] = useState("");
-  const [page, setPage] = useState(1);
-  const [index, setIndex] = useState();
-  const [len, setLen] = useState();
-  const [createstudent, setCreatestudent] = useState({
+  const [open, setOpen] = useState(false);
+  const [createStd, setCreateStd] = useState({
     branch: "",
     year: "",
   });
-  const [facultyCurrent, setFacultyCurrent] = useState();
+  const [facultyCurrent, setFacultyCurrent] = useState("");
   const [students, setStudents] = useState([]);
-  // const [createstudentForm] = useForm(null);
-  const getStudents = async () => {
+
+  const [pageNumber, setPageNumber] = useState(0);
+  const usersPerPage = 8;
+  const pagesVisited = pageNumber * usersPerPage;
+  const displayStudents = students
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((data, i) => {
+      return (
+        <tr key={usersPerPage * pageNumber + i + 1}>
+          <td>{usersPerPage * pageNumber + i + 1}</td>
+          <td>{data.full_name}</td>
+          <td>{data.roll_no}</td>
+          <td>{data.branch}</td>
+          <td>{data.year}</td>
+        </tr>
+      );
+    });
+
+  const pageCount = Math.ceil(students.length / usersPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
+  const getFilteredStd = async (branch, year) => {
+    var url = "";
+    if (branch === "" && year === "") {
+      url = Api.filterstdUrl;
+    } else if (branch === "" && year !== "") {
+      url = Api.filterstdUrl + "year=" + year;
+    } else if (branch !== "" && year === "") {
+      url = Api.filterstdUrl + "branch=" + branch;
+    } else {
+      url = Api.filterstdUrl + "year=" + year + "&branch=" + branch;
+    }
     const res = await axios
-      .get(Api.getStdlist, {
+      .get(url, {
         headers: { Authorization: `${localStorage.facultyToken}` },
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
     if (res) {
-      console.log(res.data.data);
       setStudents(res.data.data);
+      console.log(res.data.data);
+      setTotalRecords(res.data.data.length);
+    }
+  };
+
+  const getStd = async () => {
+    const res = await axios
+      .get(Api.getstdUrl, {
+        headers: { Authorization: `${localStorage.facultyToken}` },
+      })
+      .catch((err) => console.log(err));
+    if (res) {
+      setStudents(res.data.data);
+      setTotalRecords(res.data.data.length);
       setIsLoading(false);
     }
   };
+
   useEffect(() => {
     setIsLoading(true);
 
     setFacultyCurrent(localStorage.getItem("facultyName"));
 
-    getStudents();
+    // getStudents();
+    getStd();
+    setIsLoading(false);
   }, []);
-  const openDialog = () => {};
+
+  const handleFilterFunc = (e) => {
+    e.preventDefault();
+    setPageNumber(0);
+    getFilteredStd(createStd.branch, createStd.year);
+  };
+
+  const openDialog = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const successfulCloseHandler = (res) => {
+    if (res) setOpen(false);
+  };
   return (
     <>
       <section>
-        {/* <FacultyPopup /> */}
+        <Dialog open={open} onClose={handleClose} maxWidth={"xs"}>
+          <FacultyPopup onSuccessfulClose={successfulCloseHandler} />
+        </Dialog>
         <div className="container container__ms">
           <div
             className="row row__ms m-3 p-3"
@@ -119,23 +185,28 @@ const ManageStudent = () => {
                       </tr>
                     )}
 
-                    {!isLoading &&
-                      students.map((data, i) => {
-                        return (
-                          <tr key={i}>
-                            <td>{i}</td>
-                            <td>{data.full_name}</td>
-                            <td>{data.roll_no}</td>
-                            <td>{data.branch}</td>
-                            <td>{data.year}</td>
-                          </tr>
-                        );
-                      })}
+                    {!isLoading && displayStudents}
                   </tbody>
                 </table>
                 <br />
                 <div className="page page__ms">
-                  <pagination-controls></pagination-controls>
+                  <ReactPaginate
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    containerClassName={"pagination justify-content-center"}
+                    pageClassName={"page-item"}
+                    pageLinkClassName={"page-link"}
+                    previousClassName={"page-item"}
+                    previousLinkClassName={"page-link"}
+                    nextClassName={"page-item"}
+                    nextLinkClassName={"page-link"}
+                    breakClassName={"page-item"}
+                    breakLinkClassName={"page-link"}
+                    activeClassName={"active"}
+                  ></ReactPaginate>
                 </div>
               </div>
             </div>
@@ -153,7 +224,7 @@ const ManageStudent = () => {
                 </h3>
                 <div className="card card__ms w-90 sub sub__ms">
                   <div className="card-body card-body__ms">
-                    <form>
+                    <form onSubmit={handleFilterFunc}>
                       <div className="row row__ms">
                         <div className="col-5" style={{ lineHeight: "2.5" }}>
                           <p
@@ -171,6 +242,13 @@ const ManageStudent = () => {
                             id="inputCourse"
                             className="form-control form-control__ms"
                             name="year"
+                            value={createStd.year}
+                            onChange={(e) =>
+                              setCreateStd({
+                                ...createStd,
+                                year: e.target.value,
+                              })
+                            }
                             style={{
                               backgroundColor: "#065b9a",
                               borderRadius: "20px",
@@ -202,6 +280,13 @@ const ManageStudent = () => {
                             id="inputCourse"
                             className="form-control form-control__ms"
                             name="branch"
+                            value={createStd.branch}
+                            onChange={(e) =>
+                              setCreateStd({
+                                ...createStd,
+                                branch: e.target.value,
+                              })
+                            }
                             style={{
                               backgroundColor: "#065b9a",
                               borderRadius: "20px",

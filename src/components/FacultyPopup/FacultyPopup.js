@@ -7,17 +7,17 @@ import { Button } from "@mui/material";
 import axios from "axios";
 
 const FacultyPopup = (props) => {
-  const navigate = useNavigate();
-  const facultyLogout = async () => {
-    const res = await axios.get(Api.logoutfacultyUrl).catch((err) => {
-      console.log(err);
-    });
-    if (res) {
-      console.log("logout successful");
-      localStorage.removeItem("facultyToken");
-      navigate("home");
-    }
-  };
+  // const navigate = useNavigate();
+  // const facultyLogout = async () => {
+  //   const res = await axios.get(Api.logoutfacultyUrl).catch((err) => {
+  //     console.log(err);
+  //   });
+  //   if (res) {
+  //     console.log("logout successful");
+  //     localStorage.removeItem("facultyToken");
+  //     navigate("home");
+  //   }
+  // };
 
   const handleClose = () => {
     props.onSuccessfulClose(true);
@@ -38,10 +38,12 @@ const FacultyPopup = (props) => {
         </Button>
         <Button
           variant="contained"
-          onClick={facultyLogout}
+          // onClick={facultyLogout}
           className="fp__btn button__fp"
         >
-          LogOut
+          <Link to="/facultypage/logout" className="a__fp">
+            LogOut
+          </Link>
         </Button>
         <Button
           variant="contained"
