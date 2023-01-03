@@ -20,9 +20,9 @@ const DeleteStudent = () => {
       return;
     }
     setLoader(true);
-    console.warn(deleteStd);
+    var stdID = Number(deleteStd.roll_no);
     const res = await axios
-      .patch(Api.deleteStd, deleteStd, {
+      .delete(`${Api.deleteStd}/${stdID}`, {
         headers: { Authorization: `${localStorage.facultyToken}` },
       })
       .catch((err) => {
