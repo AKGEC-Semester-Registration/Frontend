@@ -8,6 +8,9 @@ const Logout = () => {
     localStorage.clear();
     navigate("/");
   };
+  const goBackHandler = () => {
+    navigate(-1);
+  };
   return (
     <div className="container-01">
       <div className="card card__logout">
@@ -20,6 +23,7 @@ const Logout = () => {
             <button
               className="btn btn-outline  mb-2  py-2 px-5 btn__logout btn-outline__logout"
               type="submit"
+              onClick={goBackHandler}
             >
               Go Back
             </button>
