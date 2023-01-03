@@ -1,6 +1,13 @@
 import "./Logout.css";
 
+import { useNavigate } from "react-router-dom";
+
 const Logout = () => {
+  const navigate = useNavigate();
+  const logOutHandler = () => {
+    localStorage.clear();
+    navigate("/");
+  };
   return (
     <div className="container-01">
       <div className="card card__logout">
@@ -19,14 +26,12 @@ const Logout = () => {
           </div>
 
           <div className="col ">
-            <a href="#">
-              <button
-                className="btn blue mb-2  py-2 px-5 btn__logout blue__logout"
-                type="submit"
-              >
-                Logout
-              </button>
-            </a>
+            <button
+              className="btn blue mb-2  py-2 px-5 btn__logout blue__logout"
+              onClick={logOutHandler}
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import DeleteStudent from "./components/DeleteStudent/DeleteStudent";
 import Faculty from "./components/Faculty/Faculty";
 import Form from "./components/Form/Form";
 import Home from "./components/Home/Home";
+import Logout from "./components/Logout/Logout";
 import ManageStudent from "./components/ManageStudent/ManageStudent";
 import Proceed from "./components/Proceed/Proceed";
 import RegisteredStudent from "./components/RegisteredStudent/RegisteredStudent";
@@ -70,6 +71,7 @@ function App() {
             path="facultypage/update-password"
             element={<UpdatePassword />}
           />
+          <Route path="facultypage/logout" element={<Logout />} />
         </Routes>
       </Router>
     </>
