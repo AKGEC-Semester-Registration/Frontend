@@ -17,8 +17,11 @@ import Proceed from "./components/Proceed/Proceed";
 import RegisteredStudent from "./components/RegisteredStudent/RegisteredStudent";
 import { BrowserRouter as Router } from "react-router-dom";
 import Student from "./components/Student/Student";
+import Submitted from "./components/Submitted/Submitted";
 import Summary from "./components/Summary/Summary";
 import { ToastContainer } from "react-toastify";
+import UpdateFaculty from "./components/UpdateFaculty/UpdateFaculty";
+import UpdatePassword from "./components/UpdatePassword/UpdatePassword";
 import UpdateStudent from "./components/UpdateStudent/UpdateStudent";
 
 function App() {
@@ -31,6 +34,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="student" element={<Student />} />
           <Route path="proceed" element={<Proceed />} />
+          <Route path="submitted" element={<Submitted />} />
           <Route path="proceed/form" element={<Form />} />
           <Route path="faculty" element={<Faculty />} />
           <Route path="facultypage/dashboard" element={<Dashboard />} />
@@ -57,6 +61,14 @@ function App() {
           <Route
             path="facultypage/registeredstd"
             element={<RegisteredStudent />}
+          />
+          <Route
+            path="facultypage/update-faculty"
+            element={<UpdateFaculty />}
+          />
+          <Route
+            path="facultypage/update-password"
+            element={<UpdatePassword />}
           />
         </Routes>
       </Router>

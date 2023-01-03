@@ -1,0 +1,110 @@
+body {
+    background-image: url('../../assets/bg-01.svg');
+    max-height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #7b8a9b !important;
+}
+
+.akg-logo__sub {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.h1__sub {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.footer__sub {
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: right;
+    border: 10px;
+    ;
+}
+
+.h4__sub {
+    margin-bottom: 00px;
+    margin-right: 20px;
+}
+
+.brl-logo__sub {
+    height: 7em;
+    margin-right: 20px;
+}
+
+.column__sub {
+    float: left;
+    padding: 10px;
+}
+
+.column__sub.side__sub {
+    width: 15%;
+}
+
+.column__sub.middle__sub {
+    width: 70%;
+}
+
+.row__sub:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column__sub.side__sub {
+        display: none;
+    }
+    .column__sub.middle__sub {
+        width: 100%;
+    }
+}
+
+.card1__sub {
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2em;
+    z-index: 100;
+    color: white;
+    text-align: center;
+    background-color: #0275d8;
+}
+
+.redbox__sub {
+    width: fit-content;
+    margin-top: -11%;
+    background-color: #d9534f;
+    color: white;
+    align-self: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.btn__sub {
+    color: #0275d8;
+    border-radius: 25px;
+}
+
+.btn__sub:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.a__sub {
+    text-decoration: none;
+    width: fit-content;
+    align-self: center;
+}
+
+@media (max-width: 600px) {
+    .h1__sub {
+        font-size: xx-large;
+    }
+    .h2__sub {
+        font-size: x-large;
+    }
+}
