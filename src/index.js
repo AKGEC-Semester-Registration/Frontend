@@ -15,6 +15,7 @@ import FacultyProtectedRoute from "./util/FacultyProtectedRoute";
 import Form from "./components/Form/Form";
 import Home from "./components/Home/Home";
 import Logout from "./components/Logout/Logout";
+import MainNav from "./components/MainNav/MainNav";
 import ManageStudent from "./components/ManageStudent/ManageStudent";
 import Proceed from "./components/Proceed/Proceed";
 import React from "react";
@@ -73,7 +74,9 @@ root.render(
             path="facultypage/dashboard"
             element={
               <FacultyProtectedRoute>
-                <Dashboard />
+                <MainNav>
+                  <Dashboard />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -81,7 +84,9 @@ root.render(
             path="facultypage/createfaculty"
             element={
               <FacultyProtectedRoute>
-                <CreateFaculty />
+                <MainNav>
+                  <CreateFaculty />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -89,7 +94,9 @@ root.render(
             path="facultypage/managestudent"
             element={
               <FacultyProtectedRoute>
-                <ManageStudent />
+                <MainNav>
+                  <ManageStudent />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -97,7 +104,9 @@ root.render(
             path="facultypage/create-lib-due"
             element={
               <FacultyProtectedRoute>
-                <CreateLibraryDue />
+                <MainNav>
+                  <CreateLibraryDue />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -105,7 +114,9 @@ root.render(
             path="facultypage/clear-lib-due"
             element={
               <FacultyProtectedRoute>
-                <ClearLibraryDue />
+                <MainNav>
+                  <ClearLibraryDue />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -113,7 +124,9 @@ root.render(
             path="facultypage/update-student"
             element={
               <FacultyProtectedRoute>
-                <UpdateStudent />
+                <MainNav>
+                  <UpdateStudent />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -121,7 +134,9 @@ root.render(
             path="facultypage/delete-student"
             element={
               <FacultyProtectedRoute>
-                <DeleteStudent />
+                <MainNav>
+                  <DeleteStudent />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -129,7 +144,9 @@ root.render(
             path="facultypage/createstd"
             element={
               <FacultyProtectedRoute>
-                <CreateStudent />
+                <MainNav>
+                  <CreateStudent />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -137,7 +154,9 @@ root.render(
             path="facultypage/summary"
             element={
               <FacultyProtectedRoute>
-                <Summary />
+                <MainNav>
+                  <Summary />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -145,7 +164,9 @@ root.render(
             path="facultypage/registeredstd"
             element={
               <FacultyProtectedRoute>
-                <RegisteredStudent />
+                <MainNav>
+                  <RegisteredStudent />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -153,7 +174,9 @@ root.render(
             path="facultypage/update-faculty"
             element={
               <FacultyProtectedRoute>
-                <UpdateFaculty />
+                <MainNav>
+                  <UpdateFaculty />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -161,7 +184,9 @@ root.render(
             path="facultypage/update-password"
             element={
               <FacultyProtectedRoute>
-                <UpdatePassword />
+                <MainNav>
+                  <UpdatePassword />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />
@@ -169,7 +194,9 @@ root.render(
             path="facultypage/logout"
             element={
               <FacultyProtectedRoute>
-                <Logout />
+                <MainNav>
+                  <Logout />
+                </MainNav>
               </FacultyProtectedRoute>
             }
           />

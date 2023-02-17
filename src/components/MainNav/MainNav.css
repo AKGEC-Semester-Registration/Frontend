@@ -1,0 +1,118 @@
+.sidenav-container__mn {
+  height: 100%;
+  margin-left: 0px;
+  overflow-x: hidden;
+}
+
+.sidenav__mn {
+  width: 350px;
+  background-color: #065b9a;
+  margin-left: 0px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  .sidenav__mn {
+    width: 280px;
+  }
+}
+
+.sidenav__mn .mat-toolbar__mn {
+  background: inherit;
+  margin-left: 0px;
+}
+
+.mat-toolbar__mn.mat-primary__mn {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.list__mn {
+  /* height: fit-content; */
+  margin: auto;
+  padding-top: 10%;
+  overflow: hidden;
+}
+
+.element__mn {
+  font-size: larger;
+  font-weight: 500;
+  color: white;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+  padding-left: 5%;
+  border-top-right-radius: -5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: -5px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+}
+
+.element__mn::-webkit-scrollbar {
+  display: none;
+}
+
+.element__mn:hover {
+  background-color: white;
+  color: #065b9a;
+  border-top-right-radius: -5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: -5px;
+  border-bottom-left-radius: 20px;
+  transition: 0.5s;
+  transform: scale(1.07);
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+/* .element:focus {
+    background-color: white;
+    color: #065b9a;
+    border-top-right-radius: -5px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: -5px;
+    border-bottom-left-radius: 20px;
+} */
+
+.navlist__mn .a__mn.active {
+  background-color: white !important;
+  color: #065b9a !important;
+  border-top-right-radius: -5px !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-right-radius: -5px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.active {
+  background-color: white !important;
+  color: #065b9a !important;
+  border-top-right-radius: -5px !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-right-radius: -5px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.navlist__mn {
+  margin-left: 10%;
+}
+
+.logo__mn {
+  bottom: 5px;
+  position: absolute;
+}
+
+@media only screen and (max-height: 630px) {
+  .logo__mn {
+    display: none;
+  }
+}
+
+.a__mn {
+  display: block !important;
+}

@@ -2,7 +2,6 @@ import "./App.css";
 
 import React, { useEffect, useState } from "react";
 
-import MainNav from "./components/MainNav/MainNav";
 import { Outlet } from "react-router-dom";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
 
   return (
     <React.Fragment>
-      {isLoggedIn && <MainNav />}
       <Outlet />
     </React.Fragment>
   );

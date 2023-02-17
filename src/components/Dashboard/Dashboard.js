@@ -31,7 +31,7 @@ const Dashboard = () => {
     fetchCounts();
   }, []);
   return (
-    <div>
+    <div className="partition">
       <div className="container-fluid container-fluid__dash">
         <h1 style={{ color: "#065b9a" }} className="pl-4 pl-4__dash h1__dash">
           Admin Dashboard

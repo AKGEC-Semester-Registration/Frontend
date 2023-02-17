@@ -9,6 +9,7 @@ import boy_image from "../../assets/boy.svg";
 import brl_logo from "../../assets/brllogo.png";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const Faculty = () => {
@@ -70,6 +71,37 @@ const Faculty = () => {
       navigate("/facultypage/dashboard");
     }
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      if (localStorage.getItem("facultyToken")) {
+        setLoader(true);
+        try {
+          await axios
+            .get(Api.countUrl, {
+              headers: { Authorization: `${localStorage.facultyToken}` },
+            })
+            .then(function (data) {
+              navigate("/facultypage/dashboard");
+              setLoader(false);
+            });
+        } catch (err) {
+          if (err.response.status === 403) {
+            console.log("invalid-token");
+            localStorage.removeItem("facultyToken");
+            localStorage.removeItem("facultyName");
+            navigate("/faculty");
+          }
+          setLoader(false);
+        }
+      }
+    }
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div>
       <div>
